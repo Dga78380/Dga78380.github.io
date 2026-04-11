@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-11T13:01:07.990Z",
+  "exportedAt": "2026-04-11T14:17:17.588Z",
   "members": [
     {
       "id": "tete",
@@ -145,7 +145,9 @@
       "Contrôle cou",
       "Protection bassin",
       "Poing fermé - pression sur le cou",
-      "Donner un gifle"
+      "Donner un gifle",
+      "Frappes aux parties",
+      "Contrôle du coude"
     ],
     "main_gauche": [
       "Neutre",
@@ -164,7 +166,8 @@
       "Contrôle tête adverse",
       "Contrôle cou",
       "Protection bassin",
-      "Maintien prise"
+      "Maintien prise",
+      "Clé de poignée"
     ],
     "hanche_droite": [
       "Neutre",
@@ -245,7 +248,8 @@
     "bras_droit": [
       "Neutre",
       "Position de garde",
-      "blocage haut avant"
+      "blocage haut avant",
+      "Lever vers le haut"
     ],
     "bras_gauche": [
       "Neutre",
@@ -271,7 +275,8 @@
     "corps": [
       "Neutre",
       "Rotation vers la gauche",
-      "Rotation vers la droite"
+      "Rotation vers la droite",
+      "Passage sous le bras"
     ]
   },
   "techniques": {
@@ -3774,6 +3779,338 @@
         }
       ],
       "exportedAt": "2026-04-11T13:01:07.990Z"
+    },
+    "Couteau - Menace derrière sous la gorge": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menace derrière sous la gorge",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Saisie poignet adverse",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Lever vers le haut",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Frappes aux parties",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Passage sous le bras",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Contrôle du coude",
+          "main_gauche": "Clé de poignée",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Perpendiculaire a l'agresseur",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T14:17:17.588Z"
+    },
+    "Couteau - Menace derrière sur le côté de la gorge": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menace derrière sur le côté de la gorge",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T13:03:02.056Z"
     }
   },
   "settings": {
