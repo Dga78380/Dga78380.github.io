@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-11T14:17:17.588Z",
+  "exportedAt": "2026-04-11T14:20:33.375Z",
   "members": [
     {
       "id": "tete",
@@ -3875,7 +3875,7 @@
             "genou_gauche": "",
             "pied_droit": "",
             "pied_gauche": "",
-            "bras_droit": "",
+            "bras_droit": "doit faire pression sur le  bras de l'adversaire",
             "bras_gauche": "",
             "avant_bras_droit": "",
             "avant_bras_gauche": "",
@@ -3985,7 +3985,7 @@
           "commentaire": ""
         }
       ],
-      "exportedAt": "2026-04-11T14:17:17.588Z"
+      "exportedAt": "2026-04-11T14:20:33.375Z"
     },
     "Couteau - Menace derrière sur le côté de la gorge": {
       "version": 8,
@@ -4116,6 +4116,6 @@
   "settings": {
     "theme": "light",
     "language": "fr",
-    "hoverComments": false
+    "hoverComments": true
   }
 }
