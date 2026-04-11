@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krav Notes - HTML</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="modal" id="startupModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="startupModalTitle">
+      <h2 id="startupModalTitle" data-i18n="startup_title">Choisir une base JSON</h2>
+      <p class="hint" data-i18n="startup_hint">Sélectionne le fichier JSON à utiliser pour charger et sauvegarder tes techniques, membres et actions.</p>
+      <div class="toolbar-row">
+        <button class="primary" id="startupOpenDbBtn" type="button" data-i18n="startup_open">Ouvrir la base JSON</button>
+        <button class="secondary" id="startupContinueLocalBtn" type="button" data-i18n="startup_continue">Continuer sans fichier</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div>
+        <h1 data-i18n="app_title">Krav Notes</h1>
+        <p data-i18n="app_subtitle">Notation de techniques de self-défense avec base JSON unique.</p>
+      </div>
+      <div class="header-actions">
+        <button class="secondary" id="openDatabaseBtn" type="button" data-i18n="btn_open_db">Ouvrir la base JSON</button>
+        <input id="openDatabaseFile" type="file" accept="application/json,.json" hidden />
+        <button class="secondary" id="mergeDatabaseBtn" type="button" data-i18n="btn_merge_db">Fusionner une base JSON</button>
+        <input id="mergeDatabaseFile" type="file" accept="application/json,.json" hidden />
+        <button class="primary" id="saveDatabaseBtn" type="button" data-i18n="btn_save">Sauvegarder</button>
+        <button class="secondary" id="saveAsDatabaseBtn" type="button" data-i18n="btn_save_as">Sauvegarder sous</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <button class="nav-btn active" data-page="techniquesPage" type="button" data-i18n="nav_techniques">Techniques</button>
+      <button class="nav-btn" data-page="actionsPage" type="button" data-i18n="nav_actions">Gestion des actions</button>
+      <button class="nav-btn" data-page="membersPage" type="button" data-i18n="nav_members">Gestion des membres</button>
+      <button class="nav-btn" data-page="documentationPage" type="button" data-i18n="nav_documentation">Documentation</button>
+      <button class="nav-btn" data-page="settingsPage" type="button" data-i18n="nav_settings">Réglages</button>
+    </aside>
+
+    <section class="content">
+      <div class="top-status card">
+        <div>
+          <strong data-i18n="current_file">Fichier courant :</strong>
+          <span id="currentFileLabel">Aucun fichier sélectionné</span>
+        </div>
+        <div>
+          <strong data-i18n="status">État :</strong>
+          <span id="statusLabel">Base locale navigateur chargée</span>
+        </div>
+      </div>
+
+      <section class="page active" id="techniquesPage">
+        <div class="card">
+          <h2 data-i18n="technique">Technique</h2>
+          <div class="toolbar-row">
+            <div class="field grow">
+              <label for="techniqueSelect" data-i18n="technique_procedure">Procédure technique</label>
+              <select id="techniqueSelect"></select>
+            </div>
+            <button class="primary" id="newTechniqueBtn" type="button" data-i18n="btn_new">Nouvelle</button>
+            <button class="secondary" id="saveTechniqueBtn" type="button" data-i18n="btn_save_browser">Sauvegarder (navigateur)</button>
+            <button class="danger" id="deleteTechniqueBtn" type="button" data-i18n="btn_delete">Supprimer</button>
+          </div>
+        </div>
+
+        <div class="meta-grid">
+          <div class="card">
+            <div class="collapsible-card" id="generalInfoCard">
+              <div class="collapsible-header" data-target="generalInfoBody">
+                <span data-i18n="general_info">Informations générales</span>
+                <span class="collapse-indicator">Replier</span>
+              </div>
+              <div class="collapsible-body" id="generalInfoBody">
+                <div class="field">
+                  <label for="titleInput" data-i18n="title">Titre</label>
+                  <input id="titleInput" type="text" placeholder="Défense sur saisie poignet + contre" data-i18n-placeholder="ph_title" />
+                </div>
+                <div class="three-cols">
+                  <div class="field">
+                    <label for="initialStateInput" data-i18n="initial_state">État initial</label>
+                    <textarea id="initialStateInput" placeholder="Position de départ, distance, saisie..." data-i18n-placeholder="ph_initial_state"></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="finalStateInput" data-i18n="final_state">État final</label>
+                    <textarea id="finalStateInput" placeholder="Position finale, contrôle, fuite..." data-i18n-placeholder="ph_final_state"></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="attentionPointsInput" data-i18n="attention_points">Points d'attention</label>
+                    <textarea id="attentionPointsInput" placeholder="Sécurité, angle, respiration..." data-i18n-placeholder="ph_attention_points"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="steps">Étapes</h2>
+            <div class="toolbar-row compact-gap">
+              <div class="field">
+                <label for="hoverCommentsToggle" data-i18n="hover_comments_toggle">Commentaires au survol</label>
+                <input id="hoverCommentsToggle" type="checkbox" />
+              </div>
+              <button class="secondary" id="tableViewBtn" type="button" data-i18n="btn_table_view">Vue tableau</button>
+              <button class="secondary" id="ganttViewBtn" type="button" data-i18n="btn_gantt_view">Vue gantt</button>
+              <button class="secondary mobile-only" id="mobileStepsViewBtn" type="button" data-i18n="btn_mobile_steps">Vue mobile étapes</button>
+              <button class="secondary mobile-only" id="mobileGanttViewBtn" type="button" data-i18n="btn_mobile_gantt">Vue mobile gantt</button>
+            </div>
+            <p class="hint" data-i18n="hint_right_click">Clic droit sur une case pour afficher ou masquer le commentaire libre.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap active" id="tableWrap">
+            <table>
+              <thead>
+                <tr id="techniqueTableHeader"></tr>
+              </thead>
+              <tbody id="stepsTableBody"></tbody>
+            </table>
+          </div>
+          <div class="gantt-wrap" id="ganttWrap">
+            <div class="gantt-grid" id="ganttGrid"></div>
+          </div>
+          <div class="mobile-steps-wrap" id="mobileStepsWrap"></div>
+          <div class="mobile-gantt-wrap" id="mobileGanttWrap"></div>
+          <div class="steps-footer">
+            <button class="primary" id="addStepBtn" type="button" data-i18n="btn_add_step">Ajouter une étape</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="actionsPage">
+        <div class="card">
+          <h2 data-i18n="actions_management">Gestion des actions</h2>
+          <div class="toolbar-row">
+            <div class="field grow">
+              <label for="actionMemberSelect" data-i18n="member_concerned">Membre concerné</label>
+              <select id="actionMemberSelect"></select>
+            </div>
+            <div class="field grow">
+              <label for="newActionInput" data-i18n="new_action">Nouvelle action</label>
+              <input id="newActionInput" type="text" placeholder="Contrôle poignet bas" data-i18n-placeholder="ph_new_action" />
+            </div>
+            <button class="primary" id="addActionBtn" type="button" data-i18n="btn_add">Ajouter</button>
+            <button class="secondary" id="renameActionBtn" type="button" data-i18n="btn_rename">Renommer</button>
+            <button class="danger" id="deleteActionBtn" type="button" data-i18n="btn_delete">Supprimer</button>
+          </div>
+          <div class="toolbar-row compact-top">
+            <div class="field grow">
+              <label for="actionSelect" data-i18n="member_actions">Actions du membre</label>
+              <select id="actionSelect"></select>
+            </div>
+            <button class="secondary" id="exportConfigBtn" type="button" data-i18n="btn_export_config">Exporter config JSON</button>
+            <button class="secondary" id="importConfigBtn" type="button" data-i18n="btn_import_config">Importer config JSON</button>
+            <input id="importConfigFile" type="file" accept="application/json,.json" hidden />
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="action_library">Bibliothèque d’actions</h2>
+          <div id="actionLibraryContainer"></div>
+        </div>
+      </section>
+
+      <section class="page" id="membersPage">
+        <div class="card">
+          <h2 data-i18n="members_management">Gestion des membres</h2>
+          <div class="toolbar-row">
+            <div class="field grow">
+              <label for="memberSelect" data-i18n="member">Membre</label>
+              <select id="memberSelect"></select>
+            </div>
+            <div class="field grow">
+              <label for="newMemberInput" data-i18n="new_member">Nouveau membre</label>
+              <input id="newMemberInput" type="text" placeholder="Avant-bras droit" data-i18n-placeholder="ph_new_member" />
+            </div>
+            <button class="primary" id="addMemberBtn" type="button" data-i18n="btn_add">Ajouter</button>
+            <button class="secondary" id="renameMemberBtn" type="button" data-i18n="btn_rename">Renommer</button>
+            <button class="danger" id="deleteMemberBtn" type="button" data-i18n="btn_delete">Supprimer</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="collapsible-card" id="memberListCard">
+            <div class="collapsible-header" data-target="memberListBody">
+              <span data-i18n="members_list">Liste des membres</span>
+              <span class="collapse-indicator">Replier</span>
+            </div>
+            <div class="collapsible-body" id="memberListBody"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="settingsPage">
+        <div class="card">
+          <h2 data-i18n="settings">Réglages</h2>
+          <div class="field">
+            <label for="languageSelect" data-i18n="language">Langue</label>
+            <select id="languageSelect">
+              <option value="fr">Français</option>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="themeSelect" data-i18n="theme">Thème</label>
+            <select id="themeSelect">
+              <option value="light" data-i18n="theme_light">Clair</option>
+              <option value="dark" data-i18n="theme_dark">Sombre</option>
+            </select>
+          </div>
+          <p class="hint" data-i18n="settings_hint">Le fichier JSON unique contient les techniques, les membres, les actions et la configuration.</p>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="full_database">Base JSON complète</h2>
+          <pre id="databasePreview" class="json-preview"></pre>
+        </div>
+      </section>
+
+      <section class="page" id="documentationPage">
+        <div class="card">
+          <h2 data-i18n="documentation">Documentation</h2>
+          <div data-i18n-html="documentation_body"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
