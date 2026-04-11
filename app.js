@@ -1784,9 +1784,12 @@
 
     if (!wasAutoLoaded) await initializeData(true);
     showPage('techniquesPage');
-    if (dbFileHandle) setStorageInfo('Application prête. Base JSON fichier liée.', false);
-    else setStorageInfo('Application prête. Aucun fichier JSON lié, utilisation des données du navigateur.', false);
-    if (!dbFileHandle) showStartupModal();
+    if (dbFileHandle) {
+      setStorageInfo('Application prête. Base JSON fichier liée.', false);
+    } else if (!wasAutoLoaded) {
+      setStorageInfo('Application prête. Aucun fichier JSON lié, utilisation des données du navigateur.', false);
+    }
+    if (!dbFileHandle && !wasAutoLoaded) showStartupModal();
     setActionsInfo('Bibliothèque d’actions prête.', false);
     setMembersInfo('Gestion des membres prête.', false);
   })();
