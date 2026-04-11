@@ -56,6 +56,7 @@
       app_title: 'Krav Notes',
       app_subtitle: 'Notation de techniques de self-défense avec base JSON unique.',
       btn_open_db: 'Ouvrir la base JSON',
+      btn_load_db_url: 'Charger depuis GitHub',
       btn_merge_db: 'Fusionner une base JSON',
       btn_save: 'Sauvegarder',
       btn_save_as: 'Sauvegarder sous',
@@ -155,6 +156,7 @@
       app_title: 'Krav Notes',
       app_subtitle: 'Self-defense technique notes with a single JSON database.',
       btn_open_db: 'Open JSON database',
+      btn_load_db_url: 'Load from URL',
       btn_merge_db: 'Merge JSON database',
       btn_save: 'Save',
       btn_save_as: 'Save as',
@@ -254,6 +256,7 @@
       app_title: 'Krav Notes',
       app_subtitle: 'Notizen zu Selbstverteidigungstechniken mit einer einzigen JSON-Datenbank.',
       btn_open_db: 'JSON-Datenbank öffnen',
+      btn_load_db_url: 'Von URL laden',
       btn_merge_db: 'JSON-Datenbank zusammenführen',
       btn_save: 'Speichern',
       btn_save_as: 'Speichern unter',
@@ -652,6 +655,71 @@
     updateDatabasePreview();
     hideStartupModal();
     await initializeData(true);
+  }
+
+  async function loadDatabaseFromUrl() {
+    try {
+      const suggested = (() => {
+        try { return localStorage.getItem('krav_notes_db_url') || ''; } catch { return ''; }
+      })();
+      const next = window.prompt('URL du fichier JSON (GitHub Pages) :', suggested);
+      if (!next || !next.trim()) return;
+      const url = next.trim();
+      try { localStorage.setItem('krav_notes_db_url', url); } catch { /* ignore */ }
+
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`http_${response.status}`);
+      const text = await response.text();
+      const parsed = safeJsonParse(text, null);
+      if (!parsed) throw new Error('invalid_json');
+
+      applyDatabaseObject(parsed);
+      dbFileHandle = null;
+      currentDbName = url;
+      setCurrentFileLabel(url);
+      setStorageInfo('Base JSON chargée depuis l\'URL.', false);
+      updateDatabasePreview();
+      hideStartupModal();
+      await initializeData(true);
+      setFileDirty(false);
+    } catch (error) {
+      console.error(error);
+      setStorageInfo('Chargement depuis URL impossible.', true);
+    }
+  }
+
+  async function tryLoadDatabaseFromUrlOnStartup() {
+    const candidates = [];
+    try {
+      const stored = localStorage.getItem('krav_notes_db_url');
+      if (stored && stored.trim()) candidates.push(stored.trim());
+    } catch { /* ignore */ }
+
+    candidates.push('krav-notes-db.json');
+
+    for (const url of candidates) {
+      try {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (!response.ok) continue;
+        const text = await response.text();
+        const parsed = safeJsonParse(text, null);
+        if (!parsed) continue;
+        applyDatabaseObject(parsed);
+        dbFileHandle = null;
+        currentDbName = url;
+        setCurrentFileLabel(url);
+        setStorageInfo('Base JSON chargée automatiquement.', false);
+        updateDatabasePreview();
+        hideStartupModal();
+        await initializeData(true);
+        setFileDirty(false);
+        return true;
+      } catch {
+        // ignore and try next
+      }
+    }
+
+    return false;
   }
 
   function deepSortObject(value) {
@@ -1541,6 +1609,9 @@
   const openDatabaseBtn = $('openDatabaseBtn');
   if (openDatabaseBtn) openDatabaseBtn.addEventListener('click', openDatabase);
 
+  const loadDatabaseUrlBtn = $('loadDatabaseUrlBtn');
+  if (loadDatabaseUrlBtn) loadDatabaseUrlBtn.addEventListener('click', loadDatabaseFromUrl);
+
   const mergeDatabaseBtn = $('mergeDatabaseBtn');
   if (mergeDatabaseBtn) mergeDatabaseBtn.addEventListener('click', mergeDatabase);
 
@@ -1702,7 +1773,15 @@
         dbFileHandle = null;
       }
     }
-    await initializeData(true);
+
+    let wasAutoLoaded = false;
+
+    if (!dbFileHandle) {
+      const loaded = await tryLoadDatabaseFromUrlOnStartup();
+      if (loaded) wasAutoLoaded = true;
+    }
+
+    if (!wasAutoLoaded) await initializeData(true);
     showPage('techniquesPage');
     if (dbFileHandle) setStorageInfo('Application prête. Base JSON fichier liée.', false);
     else setStorageInfo('Application prête. Aucun fichier JSON lié, utilisation des données du navigateur.', false);
