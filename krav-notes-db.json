@@ -1,0 +1,1006 @@
+{
+  "version": 1,
+  "exportedAt": "2026-04-10T16:40:47.199Z",
+  "members": [
+    {
+      "id": "tete",
+      "label": "Tête"
+    },
+    {
+      "id": "menton",
+      "label": "Menton"
+    },
+    {
+      "id": "coude_droit",
+      "label": "Coude droit"
+    },
+    {
+      "id": "coude_gauche",
+      "label": "Coude gauche"
+    },
+    {
+      "id": "main_droite",
+      "label": "Main droite"
+    },
+    {
+      "id": "main_gauche",
+      "label": "Main gauche"
+    },
+    {
+      "id": "hanche_droite",
+      "label": "Hanche droite"
+    },
+    {
+      "id": "hanche_gauche",
+      "label": "Hanche gauche"
+    },
+    {
+      "id": "genou_droit",
+      "label": "Genou droit"
+    },
+    {
+      "id": "genou_gauche",
+      "label": "Genou gauche"
+    },
+    {
+      "id": "pied_droit",
+      "label": "Pied droit"
+    },
+    {
+      "id": "pied_gauche",
+      "label": "Pied gauche"
+    },
+    {
+      "id": "bras_droit",
+      "label": "Bras droit"
+    },
+    {
+      "id": "bras_gauche",
+      "label": "Bras gauche"
+    },
+    {
+      "id": "avant_bras_droit",
+      "label": "Avant-bras droit"
+    },
+    {
+      "id": "avant_bras_gauche",
+      "label": "Avant-bras gauche"
+    },
+    {
+      "id": "buste",
+      "label": "Buste"
+    },
+    {
+      "id": "corps",
+      "label": "Corps"
+    }
+  ],
+  "actionSets": {
+    "tete": [
+      "Neutre",
+      "Regarder l'adversaire",
+      "Rentrer la tête",
+      "Tourner à droite",
+      "Tourner à gauche",
+      "Esquive droite",
+      "Esquive gauche",
+      "Pencher en avant",
+      "Pencher en arrière",
+      "Casser l'axe",
+      "Protection haute"
+    ],
+    "menton": [
+      "Neutre",
+      "Rentré",
+      "Descendu",
+      "Protégé derrière l'épaule",
+      "Aligné pour frappe",
+      "Collé à la poitrine",
+      "Relevé brièvement",
+      "Masqué"
+    ],
+    "coude_droit": [
+      "Neutre",
+      "Collé au corps",
+      "Levé garde haute",
+      "Coude vers l'avant",
+      "Coude vers l'extérieur",
+      "Coude circulaire",
+      "Coup de coude avant",
+      "Coup de coude descendant",
+      "Coup de coude arrière",
+      "Blocage intérieur",
+      "Blocage extérieur",
+      "Contrôle bras adverse"
+    ],
+    "coude_gauche": [
+      "Neutre",
+      "Collé au corps",
+      "Levé garde haute",
+      "Coude vers l'avant",
+      "Coude vers l'extérieur",
+      "Coude circulaire",
+      "Coup de coude avant",
+      "Coup de coude descendant",
+      "Coup de coude arrière",
+      "Blocage intérieur",
+      "Blocage extérieur",
+      "Contrôle bras adverse"
+    ],
+    "main_droite": [
+      "Neutre",
+      "Garde visage",
+      "Paume ouverte",
+      "Poing fermé",
+      "Saisie poignet adverse",
+      "Saisie vêtement",
+      "Poussée paume",
+      "Parade intérieure",
+      "Parade extérieure",
+      "Dégagement",
+      "Frappe directe",
+      "Frappe marteau",
+      "Uppercut",
+      "Contrôle tête adverse",
+      "Contrôle cou",
+      "Protection bassin",
+      "Poing fermé - pression sur le cou",
+      "Donner un gifle"
+    ],
+    "main_gauche": [
+      "Neutre",
+      "Garde visage",
+      "Paume ouverte",
+      "Poing fermé",
+      "Saisie poignet adverse",
+      "Saisie vêtement",
+      "Poussée paume",
+      "Parade intérieure",
+      "Parade extérieure",
+      "Dégagement",
+      "Frappe directe",
+      "Frappe marteau",
+      "Uppercut",
+      "Contrôle tête adverse",
+      "Contrôle cou",
+      "Protection bassin",
+      "Maintien prise"
+    ],
+    "hanche_droite": [
+      "Neutre",
+      "Engagement vers l'avant",
+      "Rotation interne",
+      "Rotation externe",
+      "Pivot droite",
+      "Pivot gauche",
+      "Abaissement centre de gravité",
+      "Projection du poids",
+      "Retrait",
+      "Ouverture d'angle"
+    ],
+    "hanche_gauche": [
+      "Neutre",
+      "Engagement vers l'avant",
+      "Rotation interne",
+      "Rotation externe",
+      "Pivot droite",
+      "Pivot gauche",
+      "Abaissement centre de gravité",
+      "Projection du poids",
+      "Retrait",
+      "Ouverture d'angle"
+    ],
+    "genou_droit": [
+      "Neutre",
+      "Fléchi",
+      "Ancré",
+      "Montée de genou",
+      "Genou défensif",
+      "Genou vers cible",
+      "Appui avant",
+      "Appui arrière",
+      "Préparation balayage",
+      "Déplacement latéral"
+    ],
+    "genou_gauche": [
+      "Neutre",
+      "Fléchi",
+      "Ancré",
+      "Montée de genou",
+      "Genou défensif",
+      "Genou vers cible",
+      "Appui avant",
+      "Appui arrière",
+      "Préparation balayage",
+      "Déplacement latéral"
+    ],
+    "pied_droit": [
+      "Neutre",
+      "Ancré au sol",
+      "Pas avant",
+      "Pas arrière",
+      "Pas latéral droit",
+      "Pas diagonal",
+      "Pivot sur place",
+      "Recul de sécurité",
+      "Balayage",
+      "Coup de pied bas",
+      "Appui pointe",
+      "Ouverture d'angle"
+    ],
+    "pied_gauche": [
+      "Neutre",
+      "Ancré au sol",
+      "Pas avant",
+      "Pas arrière",
+      "Pas latéral gauche",
+      "Pas diagonal",
+      "Pivot sur place",
+      "Recul de sécurité",
+      "Balayage",
+      "Coup de pied bas",
+      "Appui pointe",
+      "Ouverture d'angle"
+    ],
+    "bras_droit": [
+      "Neutre",
+      "Position de garde",
+      "blocage haut avant"
+    ],
+    "bras_gauche": [
+      "Neutre",
+      "Position de garde",
+      "blocage haut avant",
+      "Enrouler bras agresseur",
+      "Clé de poignée"
+    ],
+    "avant_bras_droit": [
+      "Neutre",
+      "Coup a la gorge",
+      "Pousser agresseur"
+    ],
+    "avant_bras_gauche": [
+      "Neutre",
+      "Blocage poignée",
+      "Pousser agresseur"
+    ],
+    "buste": [
+      "Neutre",
+      "Perpendiculaire a l'agresseur"
+    ],
+    "corps": [
+      "Neutre",
+      "Rotation vers la gauche",
+      "Rotation vers la droite"
+    ]
+  },
+  "techniques": {
+    "Bâton - défense contre attaque haut en bas": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        }
+      ],
+      "title": "Bâton - défense contre attaque haut en bas",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Position de garde",
+          "bras_gauche": "Position de garde",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Rentrer la tête",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Pas avant",
+          "pied_gauche": "Pas avant",
+          "bras_droit": "blocage haut avant",
+          "bras_gauche": "blocage haut avant",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Coup a la gorge",
+          "avant_bras_gauche": "Blocage poignée",
+          "buste": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Pas avant",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Pousser agresseur",
+          "buste": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Poing fermé - pression sur le cou",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Enrouler bras agresseur",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Perpendiculaire a l'agresseur",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Clé de poignée",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-10T12:35:53.439Z"
+    },
+    "Bâton - Défense contre attaque de côté": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        }
+      ],
+      "title": "Bâton - Défense contre attaque de côté",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-10T16:13:38.401Z"
+    },
+    "Défense sur saisie bras droit épaule gauche": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Défense sur saisie bras droit épaule gauche",
+      "initialState": "l'agresseur saisit la victime de face avec sa main droite",
+      "finalState": "l'agresseur est au sol et pleure",
+      "attentionPoints": "Ne pas crever les yeux si tu connais l'agresseur",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Donner un gifle",
+          "main_gauche": "Saisie poignet adverse",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Rotation vers la gauche",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Coup de coude descendant",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Maintien prise",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Coude circulaire",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Maintien prise",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Contrôle cou",
+          "main_gauche": "Maintien prise",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Rotation vers la droite",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Genou vers cible",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-10T16:40:47.199Z"
+    }
+  },
+  "settings": {
+    "theme": "light",
+    "language": "fr",
+    "hoverComments": false
+  }
+}

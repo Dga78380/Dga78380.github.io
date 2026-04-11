@@ -695,7 +695,7 @@
       if (stored && stored.trim()) candidates.push(stored.trim());
     } catch { /* ignore */ }
 
-    candidates.push('krav-notes-db.json');
+    candidates.push('krav-note-de.json');
 
     for (const url of candidates) {
       try {
