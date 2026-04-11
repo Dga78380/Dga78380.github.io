@@ -46,6 +46,7 @@
   let currentLanguage = 'fr';
   let isFileDirty = false;
   let hoverCommentsEnabled = true;
+  let pendingMerge = null;
 
   const TRANSLATIONS = {
     fr: {
@@ -63,10 +64,20 @@
       nav_techniques: 'Techniques',
       nav_actions: 'Gestion des actions',
       nav_members: 'Gestion des membres',
+      nav_merge: 'Fusion JSON',
       nav_documentation: 'Documentation',
       nav_settings: 'Réglages',
       current_file: 'Fichier courant :',
       status: 'État :',
+      merge_title: 'Fusion de base JSON',
+      merge_hint: 'Importe une base JSON, vérifie les différences puis choisis quoi fusionner.',
+      merge_warnings: 'Avertissements',
+      merge_force_deps: "Autoriser l'ajout automatique des dépendances manquantes (membres/actions) lors de la fusion.",
+      merge_members: 'Membres',
+      merge_actions: 'Actions',
+      merge_techniques: 'Techniques',
+      btn_apply_merge: 'Appliquer la fusion',
+      btn_cancel_merge: 'Annuler',
       technique: 'Technique',
       technique_procedure: 'Procédure technique',
       btn_new: 'Nouvelle',
@@ -163,10 +174,20 @@
       nav_techniques: 'Techniques',
       nav_actions: 'Action management',
       nav_members: 'Member management',
+      nav_merge: 'JSON merge',
       nav_documentation: 'Documentation',
       nav_settings: 'Settings',
       current_file: 'Current file:',
       status: 'Status:',
+      merge_title: 'JSON database merge',
+      merge_hint: 'Import a JSON database, review differences, then choose what to merge.',
+      merge_warnings: 'Warnings',
+      merge_force_deps: 'Allow automatic addition of missing dependencies (members/actions) during merge.',
+      merge_members: 'Members',
+      merge_actions: 'Actions',
+      merge_techniques: 'Techniques',
+      btn_apply_merge: 'Apply merge',
+      btn_cancel_merge: 'Cancel',
       technique: 'Technique',
       technique_procedure: 'Technique procedure',
       btn_new: 'New',
@@ -263,10 +284,20 @@
       nav_techniques: 'Techniken',
       nav_actions: 'Aktionsverwaltung',
       nav_members: 'Mitgliederverwaltung',
+      nav_merge: 'JSON-Zusammenführung',
       nav_documentation: 'Dokumentation',
       nav_settings: 'Einstellungen',
       current_file: 'Aktuelle Datei:',
       status: 'Status:',
+      merge_title: 'JSON-Datenbank zusammenführen',
+      merge_hint: 'Importiere eine JSON-Datenbank, prüfe die Unterschiede und wähle aus, was zusammengeführt werden soll.',
+      merge_warnings: 'Warnungen',
+      merge_force_deps: 'Automatisches Hinzufügen fehlender Abhängigkeiten (Mitglieder/Aktionen) bei der Zusammenführung erlauben.',
+      merge_members: 'Mitglieder',
+      merge_actions: 'Aktionen',
+      merge_techniques: 'Techniken',
+      btn_apply_merge: 'Zusammenführung anwenden',
+      btn_cancel_merge: 'Abbrechen',
       technique: 'Technik',
       technique_procedure: 'Technikablauf',
       btn_new: 'Neu',
@@ -816,18 +847,15 @@
     const text = await file.text();
     const parsed = safeJsonParse(text, null);
     if (!parsed) throw new Error('invalid_json');
-    const currentTechnique = getTechniqueName();
-    syncCurrentTechniqueIntoDatabase(false);
-    mergeDatabaseObject(parsed);
-    persistDatabaseLocalFallback();
-    await initializeData(true);
-    const select = $('techniqueName');
-    if (select && currentTechnique && techniquesByName[currentTechnique]) {
-      select.value = currentTechnique;
-      select.title = currentTechnique;
-    }
-    setFileDirty(true);
-    setStorageInfo('Fusion effectuée. Pensez à sauvegarder la base JSON.', false);
+    const diff = computeMergeDiff(parsed);
+    pendingMerge = {
+      sourceLabel: file.name || 'Import JSON',
+      incomingDb: parsed,
+      diff,
+      selection: initMergeSelection(diff)
+    };
+    showPage('mergePage');
+    setStorageInfo('Import effectué. Vérifiez les différences avant fusion.', false);
   }
 
   async function mergeDatabase() {
@@ -839,18 +867,15 @@
         });
         if (!handle) return;
         const parsed = await readDatabaseFromHandle(handle);
-        const currentTechnique = getTechniqueName();
-        syncCurrentTechniqueIntoDatabase(false);
-        mergeDatabaseObject(parsed);
-        persistDatabaseLocalFallback();
-        await initializeData(true);
-        const select = $('techniqueName');
-        if (select && currentTechnique && techniquesByName[currentTechnique]) {
-          select.value = currentTechnique;
-          select.title = currentTechnique;
-        }
-        setFileDirty(true);
-        setStorageInfo('Fusion effectuée. Pensez à sauvegarder la base JSON.', false);
+        const diff = computeMergeDiff(parsed);
+        pendingMerge = {
+          sourceLabel: handle.name || 'Import JSON',
+          incomingDb: parsed,
+          diff,
+          selection: initMergeSelection(diff)
+        };
+        showPage('mergePage');
+        setStorageInfo('Import effectué. Vérifiez les différences avant fusion.', false);
         return;
       }
 
@@ -1556,6 +1581,339 @@
     Array.from(document.querySelectorAll('.nav-btn')).forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-page') === pageId));
     if (pageId === 'actionsPage') refreshExistingActions();
     if (pageId === 'membersPage') renderMemberLibrary();
+    if (pageId === 'mergePage') renderMergePage();
+  }
+
+  function getMergeEls() {
+    return {
+      status: document.getElementById('mergeStatus'),
+      warnings: document.getElementById('mergeWarnings'),
+      members: document.getElementById('mergeMembersDiff'),
+      actions: document.getElementById('mergeActionsDiff'),
+      techniques: document.getElementById('mergeTechniquesDiff'),
+      applyBtn: document.getElementById('applyMergeBtn'),
+      cancelBtn: document.getElementById('cancelMergeBtn'),
+      forceDeps: document.getElementById('mergeForceDeps')
+    };
+  }
+
+  function computeTechniqueFingerprint(tech) {
+    const safe = tech && typeof tech === 'object' ? tech : {};
+    return stableStringify({
+      title: safe.title || '',
+      initialState: safe.initialState || '',
+      finalState: safe.finalState || '',
+      attentionPoints: safe.attentionPoints || '',
+      members: Array.isArray(safe.members) ? safe.members.map(m => ({ id: m && m.id ? m.id : '', label: m && m.label ? m.label : '' })) : [],
+      steps: Array.isArray(safe.steps) ? safe.steps : []
+    });
+  }
+
+  function suggestTechniqueImportName(baseName) {
+    let candidate = `${baseName} (import)`;
+    if (!techniquesByName[candidate]) return candidate;
+    let i = 2;
+    candidate = `${baseName} (import ${i})`;
+    while (techniquesByName[candidate]) { i += 1; candidate = `${baseName} (import ${i})`; }
+    return candidate;
+  }
+
+  function computeMergeDiff(incomingDb) {
+    const safe = incomingDb && typeof incomingDb === 'object' ? incomingDb : {};
+    const incomingMembers = Array.isArray(safe.members) ? safe.members.filter(m => m && m.id) : [];
+    const incomingActionSets = safe.actionSets && typeof safe.actionSets === 'object' ? safe.actionSets : {};
+    const incomingTechniques = safe.techniques && typeof safe.techniques === 'object' ? safe.techniques : {};
+
+    const memberAdds = [];
+    const memberLabelUpdates = [];
+    incomingMembers.forEach(m => {
+      const existing = members.find(x => x.id === m.id);
+      if (!existing) memberAdds.push({ id: m.id, label: m.label || m.id });
+      else if ((m.label || '') !== (existing.label || '')) memberLabelUpdates.push({ id: m.id, from: existing.label || '', to: m.label || m.id });
+    });
+
+    const actionAdds = [];
+    Object.keys(incomingActionSets).forEach(partId => {
+      const incoming = Array.isArray(incomingActionSets[partId]) ? incomingActionSets[partId] : [];
+      const current = Array.isArray(actionSets[partId]) ? actionSets[partId] : (Array.isArray(defaultActionSets[partId]) ? [...defaultActionSets[partId]] : ['Neutre']);
+      incoming.forEach(action => {
+        if (!action) return;
+        if (!current.includes(action)) actionAdds.push({ partId, action });
+      });
+    });
+
+    const techniqueAdds = [];
+    const techniqueConflicts = [];
+    const techniqueSame = [];
+
+    Object.keys(incomingTechniques).forEach(name => {
+      const incomingTech = incomingTechniques[name];
+      if (!incomingTech || typeof incomingTech !== 'object') return;
+      const existing = techniquesByName[name];
+      if (!existing) {
+        techniqueAdds.push({ name });
+        return;
+      }
+      const same = computeTechniqueFingerprint(existing) === computeTechniqueFingerprint(incomingTech);
+      if (same) techniqueSame.push({ name });
+      else techniqueConflicts.push({ name, targetName: suggestTechniqueImportName(name) });
+    });
+
+    return {
+      incomingMembers,
+      incomingActionSets,
+      incomingTechniques,
+      memberAdds,
+      memberLabelUpdates,
+      actionAdds,
+      techniqueAdds,
+      techniqueConflicts,
+      techniqueSame
+    };
+  }
+
+  function initMergeSelection(diff) {
+    const memberById = new Map(diff.incomingMembers.map(m => [m.id, m]));
+    const membersSelected = {};
+    diff.memberAdds.forEach(m => { membersSelected[m.id] = true; });
+    diff.memberLabelUpdates.forEach(m => { membersSelected[m.id] = true; });
+
+    const actionsSelected = {};
+    diff.actionAdds.forEach(item => { actionsSelected[`${item.partId}||${item.action}`] = true; });
+
+    const techniquesSelected = {};
+    diff.techniqueAdds.forEach(t => { techniquesSelected[t.name] = true; });
+    diff.techniqueConflicts.forEach(t => { techniquesSelected[t.name] = true; });
+
+    return { memberById, membersSelected, actionsSelected, techniquesSelected, forceDeps: false };
+  }
+
+  function computeMergeWarnings(diff, selection) {
+    const selectedMemberIds = new Set();
+    Object.keys(selection.membersSelected).forEach(id => { if (selection.membersSelected[id]) selectedMemberIds.add(id); });
+    members.forEach(m => selectedMemberIds.add(m.id));
+
+    const selectedActionKeys = new Set();
+    Object.keys(selection.actionsSelected).forEach(k => { if (selection.actionsSelected[k]) selectedActionKeys.add(k); });
+
+    const warnings = [];
+    const selectedTechniques = Object.keys(selection.techniquesSelected).filter(name => selection.techniquesSelected[name]);
+    selectedTechniques.forEach(name => {
+      const tech = diff.incomingTechniques[name];
+      if (!tech || typeof tech !== 'object') return;
+
+      const missingMembers = [];
+      if (Array.isArray(tech.members)) {
+        tech.members.forEach(m => {
+          if (!m || !m.id) return;
+          if (!selectedMemberIds.has(m.id)) missingMembers.push(m.id);
+        });
+      }
+
+      const missingActions = [];
+      if (Array.isArray(tech.steps)) {
+        tech.steps.forEach(step => {
+          if (!step || typeof step !== 'object') return;
+          Object.keys(step).forEach(partId => {
+            if (partId === 'comments' || partId === 'commentaire') return;
+            const val = step[partId];
+            if (!val || val === 'Neutre') return;
+            const hasInCurrent = (actionSets[partId] || []).includes(val);
+            const hasSelected = selectedActionKeys.has(`${partId}||${val}`);
+            if (!hasInCurrent && !hasSelected) missingActions.push(`${partId}:${val}`);
+            if (!selectedMemberIds.has(partId)) missingMembers.push(partId);
+          });
+        });
+      }
+
+      if (missingMembers.length || missingActions.length) {
+        warnings.push({
+          technique: name,
+          missingMembers: Array.from(new Set(missingMembers)),
+          missingActions: Array.from(new Set(missingActions))
+        });
+      }
+    });
+
+    return warnings;
+  }
+
+  function renderMergeList(container, itemsHtml) {
+    if (!container) return;
+    container.innerHTML = `<div class="diff-list">${itemsHtml || ''}</div>`;
+  }
+
+  function renderMergePage() {
+    const els = getMergeEls();
+    if (!els.status || !els.members || !els.actions || !els.techniques || !els.warnings) return;
+
+    if (!pendingMerge) {
+      els.status.textContent = translate('merge_hint');
+      renderMergeList(els.members, '');
+      renderMergeList(els.actions, '');
+      renderMergeList(els.techniques, '');
+      els.warnings.innerHTML = '';
+      return;
+    }
+
+    const diff = pendingMerge.diff;
+    const selection = pendingMerge.selection;
+
+    els.status.textContent = pendingMerge.sourceLabel || '';
+    if (els.forceDeps) els.forceDeps.checked = !!selection.forceDeps;
+
+    const memberRows = [];
+    diff.memberAdds.forEach(m => {
+      const checked = selection.membersSelected[m.id] ? 'checked' : '';
+      memberRows.push(`<div class="diff-item"><input type="checkbox" data-merge-member="${escapeHtml(m.id)}" ${checked} /><div><div class="diff-title">+ ${escapeHtml(m.label)}</div><div class="diff-meta">id: ${escapeHtml(m.id)}</div></div></div>`);
+    });
+    diff.memberLabelUpdates.forEach(m => {
+      const checked = selection.membersSelected[m.id] ? 'checked' : '';
+      memberRows.push(`<div class="diff-item"><input type="checkbox" data-merge-member="${escapeHtml(m.id)}" ${checked} /><div><div class="diff-title">~ ${escapeHtml(m.id)}</div><div class="diff-meta">${escapeHtml(m.from)} → ${escapeHtml(m.to)}</div></div></div>`);
+    });
+    if (!memberRows.length) memberRows.push(`<div class="hint">${escapeHtml('Aucun changement membre.')}</div>`);
+    renderMergeList(els.members, memberRows.join(''));
+
+    const actionRows = [];
+    diff.actionAdds.forEach(item => {
+      const key = `${item.partId}||${item.action}`;
+      const checked = selection.actionsSelected[key] ? 'checked' : '';
+      actionRows.push(`<div class="diff-item"><input type="checkbox" data-merge-action="${escapeHtml(key)}" ${checked} /><div><div class="diff-title">+ ${escapeHtml(item.action)}</div><div class="diff-meta">${escapeHtml(memberLabelById(item.partId))} (${escapeHtml(item.partId)})</div></div></div>`);
+    });
+    if (!actionRows.length) actionRows.push(`<div class="hint">${escapeHtml('Aucun ajout d\'action.')}</div>`);
+    renderMergeList(els.actions, actionRows.join(''));
+
+    const techRows = [];
+    diff.techniqueAdds.forEach(t => {
+      const checked = selection.techniquesSelected[t.name] ? 'checked' : '';
+      techRows.push(`<div class="diff-item"><input type="checkbox" data-merge-technique="${escapeHtml(t.name)}" ${checked} /><div><div class="diff-title">+ ${escapeHtml(t.name)}</div><div class="diff-meta"></div></div></div>`);
+    });
+    diff.techniqueConflicts.forEach(t => {
+      const checked = selection.techniquesSelected[t.name] ? 'checked' : '';
+      techRows.push(`<div class="diff-item"><input type="checkbox" data-merge-technique="${escapeHtml(t.name)}" ${checked} /><div><div class="diff-title">! ${escapeHtml(t.name)}</div><div class="diff-meta">conflit → ${escapeHtml(t.targetName)}</div></div></div>`);
+    });
+    if (!techRows.length) techRows.push(`<div class="hint">${escapeHtml('Aucune technique à ajouter.')}</div>`);
+    renderMergeList(els.techniques, techRows.join(''));
+
+    const warnings = computeMergeWarnings(diff, selection);
+    if (!warnings.length) {
+      els.warnings.innerHTML = '<div class="hint">OK.</div>';
+    } else {
+      els.warnings.innerHTML = `<div class="warnings-list">${warnings.map(w => {
+        const membersText = w.missingMembers && w.missingMembers.length ? `Membres manquants: ${w.missingMembers.map(escapeHtml).join(', ')}` : '';
+        const actionsText = w.missingActions && w.missingActions.length ? `Actions manquantes: ${w.missingActions.map(escapeHtml).join(', ')}` : '';
+        const parts = [membersText, actionsText].filter(Boolean).join(' | ');
+        return `<div class="warning-item"><strong>${escapeHtml(w.technique)}</strong><div>${parts}</div></div>`;
+      }).join('')}</div>`;
+    }
+
+    Array.from(document.querySelectorAll('[data-merge-member]')).forEach(cb => cb.addEventListener('change', () => {
+      const id = cb.getAttribute('data-merge-member');
+      selection.membersSelected[id] = cb.checked;
+      renderMergePage();
+    }));
+    Array.from(document.querySelectorAll('[data-merge-action]')).forEach(cb => cb.addEventListener('change', () => {
+      const key = cb.getAttribute('data-merge-action');
+      selection.actionsSelected[key] = cb.checked;
+      renderMergePage();
+    }));
+    Array.from(document.querySelectorAll('[data-merge-technique]')).forEach(cb => cb.addEventListener('change', () => {
+      const key = cb.getAttribute('data-merge-technique');
+      selection.techniquesSelected[key] = cb.checked;
+      renderMergePage();
+    }));
+    if (els.forceDeps) els.forceDeps.addEventListener('change', () => {
+      selection.forceDeps = !!els.forceDeps.checked;
+      renderMergePage();
+    });
+  }
+
+  function cancelPendingMerge() {
+    pendingMerge = null;
+    renderMergePage();
+    showPage('techniquesPage');
+    setStorageInfo('Fusion annulée.', false);
+  }
+
+  function ensureMemberExists(memberObj) {
+    if (!memberObj || !memberObj.id) return;
+    if (!members.some(m => m.id === memberObj.id)) members.push({ id: memberObj.id, label: memberObj.label || memberObj.id });
+    if (!actionSets[memberObj.id]) actionSets[memberObj.id] = Array.isArray(defaultActionSets[memberObj.id]) ? [...defaultActionSets[memberObj.id]] : ['Neutre'];
+    if (!actionSets[memberObj.id].includes('Neutre')) actionSets[memberObj.id].unshift('Neutre');
+  }
+
+  function ensureActionExists(partId, action) {
+    if (!partId || !action || action === 'Neutre') return;
+    if (!actionSets[partId]) actionSets[partId] = Array.isArray(defaultActionSets[partId]) ? [...defaultActionSets[partId]] : ['Neutre'];
+    if (!actionSets[partId].includes(action)) actionSets[partId].push(action);
+    if (!actionSets[partId].includes('Neutre')) actionSets[partId].unshift('Neutre');
+    if (actionSets[partId][0] !== 'Neutre') {
+      actionSets[partId] = actionSets[partId].filter(x => x !== 'Neutre');
+      actionSets[partId].unshift('Neutre');
+    }
+  }
+
+  async function applyPendingMerge() {
+    const els = getMergeEls();
+    if (!pendingMerge) return;
+    const diff = pendingMerge.diff;
+    const selection = pendingMerge.selection;
+
+    const selectedMemberIds = Object.keys(selection.membersSelected).filter(id => selection.membersSelected[id]);
+    selectedMemberIds.forEach(id => {
+      const incoming = diff.incomingMembers.find(m => m && m.id === id);
+      if (!incoming) return;
+      const existing = members.find(m => m.id === id);
+      if (!existing) members.push({ id, label: incoming.label || id });
+      else existing.label = incoming.label || id;
+      if (!actionSets[id]) actionSets[id] = Array.isArray(defaultActionSets[id]) ? [...defaultActionSets[id]] : ['Neutre'];
+      actionSets[id] = mergeUniqueActions(actionSets[id], diff.incomingActionSets[id]);
+    });
+
+    Object.keys(selection.actionsSelected).forEach(key => {
+      if (!selection.actionsSelected[key]) return;
+      const [partId, action] = key.split('||');
+      ensureMemberExists({ id: partId, label: memberLabelById(partId) });
+      ensureActionExists(partId, action);
+    });
+
+    const selectedTechniques = Object.keys(selection.techniquesSelected).filter(name => selection.techniquesSelected[name]);
+    selectedTechniques.forEach(name => {
+      const tech = diff.incomingTechniques[name];
+      if (!tech || typeof tech !== 'object') return;
+
+      if (selection.forceDeps) {
+        if (Array.isArray(tech.members)) tech.members.forEach(ensureMemberExists);
+        if (Array.isArray(tech.steps)) {
+          tech.steps.forEach(step => {
+            if (!step || typeof step !== 'object') return;
+            Object.keys(step).forEach(key => {
+              if (key === 'comments' || key === 'commentaire') return;
+              ensureMemberExists({ id: key, label: key });
+              ensureActionExists(key, step[key]);
+            });
+          });
+        }
+      }
+
+      if (!techniquesByName[name]) {
+        techniquesByName[name] = tech;
+        return;
+      }
+      const currentFingerprint = computeTechniqueFingerprint(techniquesByName[name]);
+      const incomingFingerprint = computeTechniqueFingerprint(tech);
+      if (currentFingerprint === incomingFingerprint) return;
+      const target = suggestTechniqueImportName(name);
+      techniquesByName[target] = tech;
+    });
+
+    pendingMerge = null;
+    persistDatabaseLocalFallback();
+    await initializeData(true);
+    setFileDirty(true);
+    if (els.status) els.status.textContent = '';
+    setStorageInfo('Fusion effectuée. Pensez à sauvegarder la base JSON.', false);
+    showPage('techniquesPage');
   }
 
   async function initializeData(rebuildTechniqueList = false) {
@@ -1615,6 +1973,12 @@
 
   const mergeDatabaseBtn = $('mergeDatabaseBtn');
   if (mergeDatabaseBtn) mergeDatabaseBtn.addEventListener('click', mergeDatabase);
+
+  const applyMergeBtn = document.getElementById('applyMergeBtn');
+  if (applyMergeBtn) applyMergeBtn.addEventListener('click', applyPendingMerge);
+
+  const cancelMergeBtn = document.getElementById('cancelMergeBtn');
+  if (cancelMergeBtn) cancelMergeBtn.addEventListener('click', cancelPendingMerge);
 
   const openDatabaseFile = document.getElementById('openDatabaseFile');
   if (openDatabaseFile) openDatabaseFile.addEventListener('change', async event => {

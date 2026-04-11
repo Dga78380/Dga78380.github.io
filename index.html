@@ -42,6 +42,7 @@
       <button class="nav-btn active" data-page="techniquesPage" type="button" data-i18n="nav_techniques">Techniques</button>
       <button class="nav-btn" data-page="actionsPage" type="button" data-i18n="nav_actions">Gestion des actions</button>
       <button class="nav-btn" data-page="membersPage" type="button" data-i18n="nav_members">Gestion des membres</button>
+      <button class="nav-btn" data-page="mergePage" type="button" data-i18n="nav_merge">Fusion JSON</button>
       <button class="nav-btn" data-page="documentationPage" type="button" data-i18n="nav_documentation">Documentation</button>
       <button class="nav-btn" data-page="settingsPage" type="button" data-i18n="nav_settings">Réglages</button>
     </aside>
@@ -134,6 +135,42 @@
           <div class="mobile-gantt-wrap" id="mobileGanttWrap"></div>
           <div class="steps-footer">
             <button class="primary" id="addStepBtn" type="button" data-i18n="btn_add_step">Ajouter une étape</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="mergePage">
+        <div class="card">
+          <h2 data-i18n="merge_title">Fusion de base JSON</h2>
+          <p class="hint" data-i18n="merge_hint">Importe une base JSON, vérifie les différences puis choisis quoi fusionner.</p>
+          <div id="mergeStatus" class="hint"></div>
+        </div>
+
+        <div class="card" id="mergeWarningsCard">
+          <h3 data-i18n="merge_warnings">Avertissements</h3>
+          <div id="mergeWarnings"></div>
+          <label class="checkbox-row"><input type="checkbox" id="mergeForceDeps" /> <span data-i18n="merge_force_deps">Autoriser l'ajout automatique des dépendances manquantes (membres/actions) lors de la fusion.</span></label>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="merge_members">Membres</h3>
+          <div id="mergeMembersDiff"></div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="merge_actions">Actions</h3>
+          <div id="mergeActionsDiff"></div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="merge_techniques">Techniques</h3>
+          <div id="mergeTechniquesDiff"></div>
+        </div>
+
+        <div class="card">
+          <div class="toolbar-row">
+            <button class="primary" id="applyMergeBtn" type="button" data-i18n="btn_apply_merge">Appliquer la fusion</button>
+            <button class="secondary" id="cancelMergeBtn" type="button" data-i18n="btn_cancel_merge">Annuler</button>
           </div>
         </div>
       </section>

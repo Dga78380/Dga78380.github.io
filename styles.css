@@ -509,6 +509,45 @@ body.no-hover-comments .mobile-part:hover textarea { display: none; }
   padding: 14px;
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.diff-list {
+  display: grid;
+  gap: 8px;
+}
+
+.diff-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px;
+  align-items: start;
+  background: white;
+}
+
+.diff-item .diff-title { font-weight: 800; }
+.diff-item .diff-meta { color: var(--muted); font-size: 13px; }
+
+.warnings-list {
+  display: grid;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.warning-item {
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #9f1239;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
 .steps-footer {
   margin-top: 12px;
   display: flex;

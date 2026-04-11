@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-10T16:40:47.199Z",
+  "exportedAt": "2026-04-11T13:30:49.496Z",
   "members": [
     {
       "id": "tete",
@@ -275,440 +275,7 @@
     ]
   },
   "techniques": {
-    "Bâton - défense contre attaque haut en bas": {
-      "version": 8,
-      "members": [
-        {
-          "id": "tete",
-          "label": "Tête"
-        },
-        {
-          "id": "menton",
-          "label": "Menton"
-        },
-        {
-          "id": "coude_droit",
-          "label": "Coude droit"
-        },
-        {
-          "id": "coude_gauche",
-          "label": "Coude gauche"
-        },
-        {
-          "id": "main_droite",
-          "label": "Main droite"
-        },
-        {
-          "id": "main_gauche",
-          "label": "Main gauche"
-        },
-        {
-          "id": "hanche_droite",
-          "label": "Hanche droite"
-        },
-        {
-          "id": "hanche_gauche",
-          "label": "Hanche gauche"
-        },
-        {
-          "id": "genou_droit",
-          "label": "Genou droit"
-        },
-        {
-          "id": "genou_gauche",
-          "label": "Genou gauche"
-        },
-        {
-          "id": "pied_droit",
-          "label": "Pied droit"
-        },
-        {
-          "id": "pied_gauche",
-          "label": "Pied gauche"
-        },
-        {
-          "id": "bras_droit",
-          "label": "Bras droit"
-        },
-        {
-          "id": "bras_gauche",
-          "label": "Bras gauche"
-        },
-        {
-          "id": "avant_bras_droit",
-          "label": "Avant-bras droit"
-        },
-        {
-          "id": "avant_bras_gauche",
-          "label": "Avant-bras gauche"
-        },
-        {
-          "id": "buste",
-          "label": "Buste"
-        }
-      ],
-      "title": "Bâton - défense contre attaque haut en bas - Test",
-      "initialState": "",
-      "finalState": "",
-      "attentionPoints": "",
-      "steps": [
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Position de garde",
-          "bras_gauche": "Position de garde",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Rentrer la tête",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Pas avant",
-          "pied_gauche": "Pas avant",
-          "bras_droit": "blocage haut avant",
-          "bras_gauche": "blocage haut avant",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Coup a la gorge",
-          "avant_bras_gauche": "Blocage poignée",
-          "buste": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Pas avant",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Pousser agresseur",
-          "buste": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Poing fermé - pression sur le cou",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Enrouler bras agresseur",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Perpendiculaire a l'agresseur",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Clé de poignée",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "commentaire": ""
-        }
-      ],
-      "exportedAt": "2026-04-10T12:35:53.439Z"
-    },
-    "Bâton - Défense contre attaque de côté": {
-      "version": 8,
-      "members": [
-        {
-          "id": "tete",
-          "label": "Tête"
-        },
-        {
-          "id": "menton",
-          "label": "Menton"
-        },
-        {
-          "id": "coude_droit",
-          "label": "Coude droit"
-        },
-        {
-          "id": "coude_gauche",
-          "label": "Coude gauche"
-        },
-        {
-          "id": "main_droite",
-          "label": "Main droite"
-        },
-        {
-          "id": "main_gauche",
-          "label": "Main gauche"
-        },
-        {
-          "id": "hanche_droite",
-          "label": "Hanche droite"
-        },
-        {
-          "id": "hanche_gauche",
-          "label": "Hanche gauche"
-        },
-        {
-          "id": "genou_droit",
-          "label": "Genou droit"
-        },
-        {
-          "id": "genou_gauche",
-          "label": "Genou gauche"
-        },
-        {
-          "id": "pied_droit",
-          "label": "Pied droit"
-        },
-        {
-          "id": "pied_gauche",
-          "label": "Pied gauche"
-        },
-        {
-          "id": "bras_droit",
-          "label": "Bras droit"
-        },
-        {
-          "id": "bras_gauche",
-          "label": "Bras gauche"
-        },
-        {
-          "id": "avant_bras_droit",
-          "label": "Avant-bras droit"
-        },
-        {
-          "id": "avant_bras_gauche",
-          "label": "Avant-bras gauche"
-        },
-        {
-          "id": "buste",
-          "label": "Buste"
-        }
-      ],
-      "title": "Bâton - Défense contre attaque de côté",
-      "initialState": "",
-      "finalState": "",
-      "attentionPoints": "",
-      "steps": [
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Neutre",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "commentaire": ""
-        }
-      ],
-      "exportedAt": "2026-04-10T16:13:38.401Z"
-    },
-    "Défense sur saisie bras droit épaule gauche": {
+    "Pistolet - Menace de face à la tête - Bout touchant": {
       "version": 8,
       "members": [
         {
@@ -784,175 +351,11 @@
           "label": "Corps"
         }
       ],
-      "title": "Défense sur saisie bras droit épaule gauche",
-      "initialState": "l'agresseur saisit la victime de face avec sa main droite",
-      "finalState": "l'agresseur est au sol et pleure",
-      "attentionPoints": "Ne pas crever les yeux si tu connais l'agresseur",
+      "title": "Pistolet - Menace de face à la tête - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
       "steps": [
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": "",
-            "corps": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Donner un gifle",
-          "main_gauche": "Saisie poignet adverse",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "corps": "Rotation vers la gauche",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": "",
-            "corps": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Coup de coude descendant",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Maintien prise",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "corps": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": "",
-            "corps": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Coude circulaire",
-          "coude_gauche": "Neutre",
-          "main_droite": "Neutre",
-          "main_gauche": "Maintien prise",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "corps": "Neutre",
-          "commentaire": ""
-        },
-        {
-          "comments": {
-            "tete": "",
-            "menton": "",
-            "coude_droit": "",
-            "coude_gauche": "",
-            "main_droite": "",
-            "main_gauche": "",
-            "hanche_droite": "",
-            "hanche_gauche": "",
-            "genou_droit": "",
-            "genou_gauche": "",
-            "pied_droit": "",
-            "pied_gauche": "",
-            "bras_droit": "",
-            "bras_gauche": "",
-            "avant_bras_droit": "",
-            "avant_bras_gauche": "",
-            "buste": "",
-            "corps": ""
-          },
-          "tete": "Neutre",
-          "menton": "Neutre",
-          "coude_droit": "Neutre",
-          "coude_gauche": "Neutre",
-          "main_droite": "Contrôle cou",
-          "main_gauche": "Maintien prise",
-          "hanche_droite": "Neutre",
-          "hanche_gauche": "Neutre",
-          "genou_droit": "Neutre",
-          "genou_gauche": "Neutre",
-          "pied_droit": "Neutre",
-          "pied_gauche": "Neutre",
-          "bras_droit": "Neutre",
-          "bras_gauche": "Neutre",
-          "avant_bras_droit": "Neutre",
-          "avant_bras_gauche": "Neutre",
-          "buste": "Neutre",
-          "corps": "Rotation vers la droite",
-          "commentaire": ""
-        },
         {
           "comments": {
             "tete": "",
@@ -982,7 +385,7 @@
           "main_gauche": "Neutre",
           "hanche_droite": "Neutre",
           "hanche_gauche": "Neutre",
-          "genou_droit": "Genou vers cible",
+          "genou_droit": "Neutre",
           "genou_gauche": "Neutre",
           "pied_droit": "Neutre",
           "pied_gauche": "Neutre",
@@ -995,7 +398,3632 @@
           "commentaire": ""
         }
       ],
-      "exportedAt": "2026-04-10T16:40:47.199Z"
+      "exportedAt": "2026-04-11T12:40:45.122Z"
+    },
+    "Pistolet - Menace de face à la tête - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace de face à la tête - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:41:25.100Z"
+    },
+    "Pistolet - Menace de côté à la tête - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace de côté à la tête - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:42:04.963Z"
+    },
+    "Pistolet - Menace de côté à la tête - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace de côté à la tête - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:42:47.917Z"
+    },
+    "Pistolet - Menace à l’arrière de la tête - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace à l’arrière de la tête - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:44:09.140Z"
+    },
+    "Pistolet - Menace basse au corps (de face) - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse au corps (de face) - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:45:00.117Z"
+    },
+    "Pistolet - Menace basse au corps (de face) - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse au corps (de face) - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:45:47.636Z"
+    },
+    "Pistolet - Menace basse de dos - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de dos - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:46:34.516Z"
+    },
+    "Pistolet - Menace basse de dos - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de dos - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:46:48.771Z"
+    },
+    "Pistolet - Menace basse de côté devant le bras - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de côté devant le bras - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:47:30.368Z"
+    },
+    "Pistolet - Menace basse de côté devant le bras - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de côté devant le bras - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:47:42.812Z"
+    },
+    "Pistolet - Menace basse de côté derrière le bras - Bout touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de côté derrière le bras - Bout touchant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:48:38.870Z"
+    },
+    "Pistolet - Menace basse de côté derrière le bras - Bout portant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace basse de côté derrière le bras - Bout portant",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:48:56.935Z"
+    },
+    "Self-Défense au Sol - Partenaire debout dans vos jambes": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Self-Défense au Sol - Partenaire debout dans vos jambes",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:49:52.331Z"
+    },
+    "Self-Défense au Sol - Partenaire sur le côté au niveau moyen": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Self-Défense au Sol - Partenaire sur le côté au niveau moyen",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:50:14.475Z"
+    },
+    "Self-Défense au Sol - Défense contre coups de pied à la tête": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Self-Défense au Sol - Défense contre coups de pied à la tête",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:50:34.591Z"
+    },
+    "Self-Défense au Sol - Partenaire debout au niveau de vos pieds": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Self-Défense au Sol - Partenaire debout au niveau de vos pieds",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:51:04.784Z"
+    },
+    "Self-Défense au Sol - Partenaire debout au-dessus de votre tête": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Self-Défense au Sol - Partenaire debout au-dessus de votre tête",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:51:35.071Z"
+    },
+    "Couteau - attaque haut en bas": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - attaque haut en bas",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:53:19.570Z"
+    },
+    "Couteau - attaque bas en haut": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - attaque bas en haut",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:53:46.048Z"
+    },
+    "Couteau - attaque circulaire à la gorge": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - attaque circulaire à la gorge",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:54:02.533Z"
+    },
+    "Couteau - attaque piquée à la poitrine": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - attaque piquée à la poitrine",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:54:22.715Z"
+    },
+    "Couteau - Menaces  de face - couteau sur le coté gauche - bras plié": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sur le coté gauche - bras plié",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:57:39.224Z"
+    },
+    "Couteau - Menaces  de face - couteau sur le coté gauche - bras tendu": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sur le coté gauche - bras tendu",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:57:55.586Z"
+    },
+    "Couteau - Menaces  de face - couteau sur le coté droit - bras tendu": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sur le coté droit - bras tendu",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:58:18.682Z"
+    },
+    "Couteau - Menaces  de face - couteau sur le coté droit - bras plié": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sur le coté droit - bras plié",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:58:43.613Z"
+    },
+    "Couteau - Menaces  de face - couteau sous la gorge - bras plié": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sous la gorge - bras plié",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T12:59:24.480Z"
+    },
+    "Couteau - Menaces  de face - couteau sous la gorge - bras tendu": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menaces  de face - couteau sous la gorge - bras tendu",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T13:01:07.990Z"
+    },
+    "Couteau - Menace derrière sous la gorge": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menace derrière sous la gorge",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T13:30:49.496Z"
+    },
+    "Couteau - Menace derrière sur le côté de la gorge": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Couteau - Menace derrière sur le côté de la gorge",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-11T13:03:02.056Z"
     }
   },
   "settings": {
