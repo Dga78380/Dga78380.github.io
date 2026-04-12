@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-12T15:36:56.399Z",
+  "exportedAt": "2026-04-12T19:55:11.371Z",
   "members": [
     {
       "id": "tete",
@@ -87,7 +87,10 @@
       "Pencher en avant",
       "Pencher en arrière",
       "Casser l'axe",
-      "Protection haute"
+      "Protection haute",
+      "Sortir la tête de l'axe du canon",
+      "Coller la tête au bras de l'agresseur",
+      "Check autres assaillants"
     ],
     "menton": [
       "Neutre",
@@ -147,7 +150,11 @@
       "Poing fermé - pression sur le cou",
       "Donner un gifle",
       "Frappes aux parties",
-      "Contrôle du coude"
+      "Contrôle du coude",
+      "Saisir pistolet - pince par dessus",
+      "Rotation de l'arme vers l'extéreur",
+      "Mettre en joue l'agresseur",
+      "Saisie du bras de l'agresseur"
     ],
     "main_gauche": [
       "Neutre",
@@ -167,7 +174,13 @@
       "Contrôle cou",
       "Protection bassin",
       "Maintien prise",
-      "Clé de poignée"
+      "Clé de poignée",
+      "Positionner la mains sur l'arrière de l'arme",
+      "Vérifier état de l'arme",
+      "Saisie du bras de l'agresseur",
+      "Saisie de l'arme",
+      "Rotation de l'arme vers l'extérieur",
+      "Désarmer l'agresseur"
     ],
     "hanche_droite": [
       "Neutre",
@@ -249,14 +262,17 @@
       "Neutre",
       "Position de garde",
       "blocage haut avant",
-      "Lever vers le haut"
+      "Lever vers le haut",
+      "pousser l'arme vers l'avant",
+      "Tirer vers le bas"
     ],
     "bras_gauche": [
       "Neutre",
       "Position de garde",
       "blocage haut avant",
       "Enrouler bras agresseur",
-      "Clé de poignée"
+      "Clé de poignée",
+      "Pousser l'arme vers l'avant"
     ],
     "avant_bras_droit": [
       "Neutre",
@@ -276,7 +292,10 @@
       "Neutre",
       "Rotation vers la gauche",
       "Rotation vers la droite",
-      "Passage sous le bras"
+      "Passage sous le bras",
+      "Se laisser tomber vers l'avant",
+      "Se retourner vers l'agresseur",
+      "S'éloigner"
     ]
   },
   "techniques": {
@@ -4113,6 +4132,709 @@
         }
       ],
       "exportedAt": "2026-04-12T15:36:56.398Z"
+    },
+    "Pistolet - Menace derrière la tête - A genoux - Bout Touchant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Menace derrière la tête - A genoux - Bout Touchant",
+      "belt": "Marron-Noire",
+      "initialState": "",
+      "finalState": "",
+      "attentionPoints": "",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Sortir la tête de l'axe du canon",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Saisir pistolet - pince par dessus",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "La main se positionne sur l'arrière du pistolet afin de favoriser la poussée de l'arme.",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Rotation de l'arme vers l'extéreur",
+          "main_gauche": "Positionner la mains sur l'arrière de l'arme",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "pousser l'arme vers l'avant",
+          "bras_gauche": "Pousser l'arme vers l'avant",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Se laisser tomber vers l'avant",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Se retourner vers l'agresseur",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Vérifier état de l'arme",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Mettre en joue l'agresseur",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-12T19:38:40.645Z"
+    },
+    "Pistolet - Agresseur derrière - Menace coté tête puis devant": {
+      "version": 8,
+      "members": [
+        {
+          "id": "tete",
+          "label": "Tête"
+        },
+        {
+          "id": "menton",
+          "label": "Menton"
+        },
+        {
+          "id": "coude_droit",
+          "label": "Coude droit"
+        },
+        {
+          "id": "coude_gauche",
+          "label": "Coude gauche"
+        },
+        {
+          "id": "main_droite",
+          "label": "Main droite"
+        },
+        {
+          "id": "main_gauche",
+          "label": "Main gauche"
+        },
+        {
+          "id": "hanche_droite",
+          "label": "Hanche droite"
+        },
+        {
+          "id": "hanche_gauche",
+          "label": "Hanche gauche"
+        },
+        {
+          "id": "genou_droit",
+          "label": "Genou droit"
+        },
+        {
+          "id": "genou_gauche",
+          "label": "Genou gauche"
+        },
+        {
+          "id": "pied_droit",
+          "label": "Pied droit"
+        },
+        {
+          "id": "pied_gauche",
+          "label": "Pied gauche"
+        },
+        {
+          "id": "bras_droit",
+          "label": "Bras droit"
+        },
+        {
+          "id": "bras_gauche",
+          "label": "Bras gauche"
+        },
+        {
+          "id": "avant_bras_droit",
+          "label": "Avant-bras droit"
+        },
+        {
+          "id": "avant_bras_gauche",
+          "label": "Avant-bras gauche"
+        },
+        {
+          "id": "buste",
+          "label": "Buste"
+        },
+        {
+          "id": "corps",
+          "label": "Corps"
+        }
+      ],
+      "title": "Pistolet - Agresseur derrière - Menace coté tête puis devant",
+      "belt": "Marron-Noire",
+      "initialState": "L'agresseur est positionné derrière la victime et menace alternativement devant et sur le coté de la tête de la victime",
+      "finalState": "",
+      "attentionPoints": "l'action se fait lorsque l'agresseur menace devant",
+      "steps": [
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "La saisie se fait en passant par dessous le bras de l'agresseur",
+            "main_gauche": "La saisie se fait en passant par le bas",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Saisie du bras de l'agresseur",
+          "main_gauche": "Saisie de l'arme",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "l'objectif est d'accentuer le contrôle du bras",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Coller la tête au bras de l'agresseur",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Rotation de l'arme vers l'extérieur",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Tirer vers le bas",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Désarmer l'agresseur",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Se retourner vers l'agresseur",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Neutre",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Genou vers cible",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "Neutre",
+          "commentaire": ""
+        },
+        {
+          "comments": {
+            "tete": "",
+            "menton": "",
+            "coude_droit": "",
+            "coude_gauche": "",
+            "main_droite": "",
+            "main_gauche": "",
+            "hanche_droite": "",
+            "hanche_gauche": "",
+            "genou_droit": "",
+            "genou_gauche": "",
+            "pied_droit": "",
+            "pied_gauche": "",
+            "bras_droit": "",
+            "bras_gauche": "",
+            "avant_bras_droit": "",
+            "avant_bras_gauche": "",
+            "buste": "",
+            "corps": ""
+          },
+          "tete": "Check autres assaillants",
+          "menton": "Neutre",
+          "coude_droit": "Neutre",
+          "coude_gauche": "Neutre",
+          "main_droite": "Neutre",
+          "main_gauche": "Neutre",
+          "hanche_droite": "Neutre",
+          "hanche_gauche": "Neutre",
+          "genou_droit": "Neutre",
+          "genou_gauche": "Neutre",
+          "pied_droit": "Neutre",
+          "pied_gauche": "Neutre",
+          "bras_droit": "Neutre",
+          "bras_gauche": "Neutre",
+          "avant_bras_droit": "Neutre",
+          "avant_bras_gauche": "Neutre",
+          "buste": "Neutre",
+          "corps": "S'éloigner",
+          "commentaire": ""
+        }
+      ],
+      "exportedAt": "2026-04-12T19:54:38.552Z"
     }
   },
   "settings": {
@@ -4127,8 +4849,8 @@
       "Verte",
       "Bleue",
       "Marron",
-      "Noire",
-      "Marron-Noire"
+      "Marron-Noire",
+      "Noire"
     ]
   }
 }
