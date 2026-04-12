@@ -319,6 +319,10 @@ button {
   grid-template-columns: repeat(2, minmax(240px, 1fr));
   gap: 14px;
 }
+
+.title-belt-row {
+  grid-template-columns: minmax(320px, 2fr) minmax(160px, 1fr);
+}
 .hint {
   margin: 10px 0 0;
   color: var(--muted);

@@ -640,17 +640,44 @@
     const list = document.getElementById('beltsList');
     if (!list) return;
     list.innerHTML = belts.map((b, idx) => {
-      return `<div class="simple-item"><span>${escapeHtml(b)}</span><button class="compact-btn danger" type="button" data-belt-delete="${idx}">Supprimer</button></div>`;
+      return `<div class="simple-item"><span>${escapeHtml(b)}</span><div class="toolbar-row compact-gap"><button class="compact-btn secondary" type="button" data-belt-up="${idx}">Monter</button><button class="compact-btn secondary" type="button" data-belt-down="${idx}">Descendre</button><button class="compact-btn danger" type="button" data-belt-delete="${idx}">Supprimer</button></div></div>`;
     }).join('');
-    Array.from(list.querySelectorAll('[data-belt-delete]')).forEach(btn => btn.addEventListener('click', async () => {
-      const i = Number(btn.getAttribute('data-belt-delete'));
-      const next = belts.filter((_, index) => index !== i);
-      applyBelts(next);
+
+    const persist = async () => {
       persistDatabaseLocalFallback();
       if (dbFileHandle) {
         try { await writeDatabaseToHandle(dbFileHandle); } catch (error) { console.error(error); }
       }
       markFileDirty();
+    };
+
+    Array.from(list.querySelectorAll('[data-belt-up]')).forEach(btn => btn.addEventListener('click', async () => {
+      const i = Number(btn.getAttribute('data-belt-up'));
+      if (!Number.isFinite(i) || i <= 0) return;
+      const next = [...belts];
+      const tmp = next[i - 1];
+      next[i - 1] = next[i];
+      next[i] = tmp;
+      applyBelts(next);
+      await persist();
+    }));
+
+    Array.from(list.querySelectorAll('[data-belt-down]')).forEach(btn => btn.addEventListener('click', async () => {
+      const i = Number(btn.getAttribute('data-belt-down'));
+      if (!Number.isFinite(i) || i >= belts.length - 1) return;
+      const next = [...belts];
+      const tmp = next[i + 1];
+      next[i + 1] = next[i];
+      next[i] = tmp;
+      applyBelts(next);
+      await persist();
+    }));
+
+    Array.from(list.querySelectorAll('[data-belt-delete]')).forEach(btn => btn.addEventListener('click', async () => {
+      const i = Number(btn.getAttribute('data-belt-delete'));
+      const next = belts.filter((_, index) => index !== i);
+      applyBelts(next);
+      await persist();
     }));
   }
 
