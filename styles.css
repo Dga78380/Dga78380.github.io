@@ -310,8 +310,14 @@ button {
 }
 .three-cols {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.two-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 14px;
 }
 .hint {
   margin: 10px 0 0;
@@ -539,6 +545,23 @@ body.no-hover-comments .mobile-part:hover textarea { display: none; }
 
 .checkbox-row input {
   width: auto;
+}
+
+.simple-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.simple-list .simple-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
 }
 
 .diff-list {

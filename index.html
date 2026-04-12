@@ -67,6 +67,10 @@
               <label for="techniqueSelect" data-i18n="technique_procedure">Procédure technique</label>
               <select id="techniqueSelect"></select>
             </div>
+            <div class="field">
+              <label for="beltFilterSelect" data-i18n="belt_filter">Filtre ceinture</label>
+              <select id="beltFilterSelect"></select>
+            </div>
             <button class="primary" id="newTechniqueBtn" type="button" data-i18n="btn_new">Nouvelle</button>
             <button class="secondary" id="saveTechniqueBtn" type="button" data-i18n="btn_save_browser">Sauvegarder (navigateur)</button>
             <button class="danger" id="deleteTechniqueBtn" type="button" data-i18n="btn_delete">Supprimer</button>
@@ -81,9 +85,15 @@
                 <span class="collapse-indicator">Replier</span>
               </div>
               <div class="collapsible-body" id="generalInfoBody">
-                <div class="field">
-                  <label for="titleInput" data-i18n="title">Titre</label>
-                  <input id="titleInput" type="text" placeholder="Défense sur saisie poignet + contre" data-i18n-placeholder="ph_title" />
+                <div class="two-cols">
+                  <div class="field">
+                    <label for="titleInput" data-i18n="title">Titre</label>
+                    <input id="titleInput" type="text" placeholder="Défense sur saisie poignet + contre" data-i18n-placeholder="ph_title" />
+                  </div>
+                  <div class="field">
+                    <label for="beltSelect" data-i18n="belt">Ceinture</label>
+                    <select id="beltSelect"></select>
+                  </div>
                 </div>
                 <div class="three-cols">
                   <div class="field">
@@ -258,6 +268,14 @@
               <option value="light" data-i18n="theme_light">Clair</option>
               <option value="dark" data-i18n="theme_dark">Sombre</option>
             </select>
+          </div>
+          <div class="field">
+            <label data-i18n="belts_management">Gestion des ceintures</label>
+            <div class="toolbar-row compact-gap">
+              <input id="newBeltInput" type="text" placeholder="Ex: Jaune" data-i18n-placeholder="ph_new_belt" />
+              <button class="secondary" id="addBeltBtn" type="button" data-i18n="btn_add">Ajouter</button>
+            </div>
+            <div id="beltsList" class="simple-list"></div>
           </div>
           <p class="hint" data-i18n="settings_hint">Le fichier JSON unique contient les techniques, les membres, les actions et la configuration.</p>
         </div>

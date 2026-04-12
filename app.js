@@ -48,6 +48,8 @@
   let isFileDirty = false;
   let hoverCommentsEnabled = true;
   let manualActionsEnabled = true;
+  let belts = ['Blanche', 'Jaune', 'Orange', 'Verte', 'Bleue', 'Marron', 'Noire'];
+  let beltFilterValue = '';
   let pendingMerge = null;
 
   const TRANSLATIONS = {
@@ -102,6 +104,10 @@
       hint_right_click: 'Clic droit sur une case pour afficher ou masquer le commentaire libre.',
       hover_comments_toggle: 'Commentaires au survol',
       manual_actions_toggle: 'Ajout action',
+      belt: 'Ceinture',
+      belt_filter: 'Filtre ceinture',
+      belts_management: 'Gestion des ceintures',
+      ph_new_belt: 'Ex: Jaune',
       actions_management: 'Gestion des actions',
       member_concerned: 'Membre concerné',
       new_action: 'Nouvelle action',
@@ -213,6 +219,10 @@
       hint_right_click: 'Right click a cell to show/hide the inline comment.',
       hover_comments_toggle: 'Comments on hover',
       manual_actions_toggle: 'Add action',
+      belt: 'Belt',
+      belt_filter: 'Belt filter',
+      belts_management: 'Belts management',
+      ph_new_belt: 'Ex: Yellow',
       actions_management: 'Action management',
       member_concerned: 'Target member',
       new_action: 'New action',
@@ -324,6 +334,10 @@
       hint_right_click: 'Rechtsklick auf eine Zelle, um den Kommentar ein-/auszublenden.',
       hover_comments_toggle: 'Kommentare beim Überfahren',
       manual_actions_toggle: 'Aktion hinzufügen',
+      belt: 'Gürtel',
+      belt_filter: 'Gürtel-Filter',
+      belts_management: 'Gürtelverwaltung',
+      ph_new_belt: 'Bsp: Gelb',
       actions_management: 'Aktionsverwaltung',
       member_concerned: 'Betroffenes Mitglied',
       new_action: 'Neue Aktion',
@@ -504,7 +518,8 @@
         theme: document.documentElement.getAttribute('data-theme') || 'light',
         language: currentLanguage,
         hoverComments: hoverCommentsEnabled,
-        manualActions: manualActionsEnabled
+        manualActions: manualActionsEnabled,
+        belts
       }
     };
   }
@@ -539,6 +554,7 @@
     if (safe.settings && safe.settings.language) applyLanguage(safe.settings.language);
     if (safe.settings && typeof safe.settings.hoverComments === 'boolean') applyHoverComments(safe.settings.hoverComments);
     if (safe.settings && typeof safe.settings.manualActions === 'boolean') applyManualActions(safe.settings.manualActions);
+    if (safe.settings && Array.isArray(safe.settings.belts)) applyBelts(safe.settings.belts);
 
     try {
       localStorage.setItem(DB_STORAGE_KEY, JSON.stringify(buildDatabaseObject()));
@@ -599,6 +615,58 @@
     document.body.classList.toggle('no-manual-actions', !manualActionsEnabled);
     try { localStorage.setItem(MANUAL_ACTIONS_STORAGE_KEY, manualActionsEnabled ? '1' : '0'); } catch { /* ignore */ }
     updateDatabasePreview();
+  }
+
+  function normalizeBeltsList(next) {
+    const raw = Array.isArray(next) ? next : [];
+    const out = [];
+    raw.forEach(item => {
+      const label = String(item || '').trim();
+      if (!label) return;
+      if (out.some(x => x.toLowerCase() === label.toLowerCase())) return;
+      out.push(label);
+    });
+    return out.length ? out : ['Blanche'];
+  }
+
+  function applyBelts(nextBelts) {
+    belts = normalizeBeltsList(nextBelts);
+    renderBeltsList();
+    renderBeltSelects();
+    updateDatabasePreview();
+  }
+
+  function renderBeltsList() {
+    const list = document.getElementById('beltsList');
+    if (!list) return;
+    list.innerHTML = belts.map((b, idx) => {
+      return `<div class="simple-item"><span>${escapeHtml(b)}</span><button class="compact-btn danger" type="button" data-belt-delete="${idx}">Supprimer</button></div>`;
+    }).join('');
+    Array.from(list.querySelectorAll('[data-belt-delete]')).forEach(btn => btn.addEventListener('click', async () => {
+      const i = Number(btn.getAttribute('data-belt-delete'));
+      const next = belts.filter((_, index) => index !== i);
+      applyBelts(next);
+      persistDatabaseLocalFallback();
+      if (dbFileHandle) {
+        try { await writeDatabaseToHandle(dbFileHandle); } catch (error) { console.error(error); }
+      }
+      markFileDirty();
+    }));
+  }
+
+  function renderBeltSelects() {
+    const beltSelect = document.getElementById('beltSelect');
+    if (beltSelect) {
+      const current = beltSelect.value;
+      beltSelect.innerHTML = '<option value="">--</option>' + belts.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join('');
+      beltSelect.value = current;
+    }
+    const filterSelect = document.getElementById('beltFilterSelect');
+    if (filterSelect) {
+      const current = filterSelect.value;
+      filterSelect.innerHTML = '<option value="">Tous</option>' + belts.map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join('');
+      filterSelect.value = current;
+    }
   }
 
   function loadHoverComments() {
@@ -1607,6 +1675,7 @@
       version: 8,
       members,
       title: $('title').value.trim(),
+      belt: (document.getElementById('beltSelect') ? document.getElementById('beltSelect').value : '') || '',
       initialState: $('initialState').value.trim(),
       finalState: $('finalState').value.trim(),
       attentionPoints: $('attentionPoints').value.trim(),
@@ -1627,6 +1696,8 @@
       populateMemberSelects();
     }
     $('title').value = safe.title || '';
+    const beltSelect = document.getElementById('beltSelect');
+    if (beltSelect) beltSelect.value = safe.belt || '';
     $('initialState').value = safe.initialState || '';
     $('finalState').value = safe.finalState || '';
     $('attentionPoints').value = safe.attentionPoints || '';
@@ -1653,10 +1724,12 @@
 
   async function refreshTechniqueList(selectedValue) {
     const select = $('techniqueName');
-    const names = Object.keys(await readStoredTechniques()).sort();
+    const all = await readStoredTechniques();
+    const names = Object.keys(all).sort();
     const current = selectedValue !== undefined ? selectedValue : select.value;
+    const filtered = beltFilterValue ? names.filter(n => (all[n] && String(all[n].belt || '') === beltFilterValue)) : names;
     select.innerHTML = '<option value="">-- sélectionner une sauvegarde --</option>';
-    names.forEach(name => {
+    filtered.forEach(name => {
       const option = document.createElement('option');
       option.value = name;
       option.textContent = name;
@@ -2034,6 +2107,8 @@
   async function initializeData(rebuildTechniqueList = false) {
     const localDb = readDatabaseLocalFallback();
     if (localDb) applyDatabaseObject(localDb);
+    renderBeltsList();
+    renderBeltSelects();
     renderTableHeader();
     populateMemberSelects();
     renderMemberLibrary();
@@ -2231,6 +2306,31 @@
 
   const manualActionsToggle = document.getElementById('manualActionsToggle');
   if (manualActionsToggle) manualActionsToggle.addEventListener('change', () => applyManualActions(manualActionsToggle.checked));
+
+  const addBeltBtn = document.getElementById('addBeltBtn');
+  if (addBeltBtn) addBeltBtn.addEventListener('click', async () => {
+    const input = document.getElementById('newBeltInput');
+    const raw = input ? input.value : '';
+    const label = String(raw || '').trim();
+    if (!label) return;
+    const next = normalizeBeltsList([...(belts || []), label]);
+    applyBelts(next);
+    if (input) input.value = '';
+    persistDatabaseLocalFallback();
+    if (dbFileHandle) {
+      try { await writeDatabaseToHandle(dbFileHandle); } catch (error) { console.error(error); }
+    }
+    markFileDirty();
+  });
+
+  const beltSelect = document.getElementById('beltSelect');
+  if (beltSelect) beltSelect.addEventListener('change', () => { markFileDirty(); });
+
+  const beltFilterSelect = document.getElementById('beltFilterSelect');
+  if (beltFilterSelect) beltFilterSelect.addEventListener('change', async () => {
+    beltFilterValue = beltFilterSelect.value || '';
+    await refreshTechniqueList(getTechniqueName());
+  });
 
   (async function init() {
     loadTheme();
