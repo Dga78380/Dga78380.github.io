@@ -775,6 +775,49 @@
     if (!actionSets[partId].includes('Neutre')) actionSets[partId].unshift('Neutre');
   }
 
+  async function addActionAndPropagate(partId, actionRaw) {
+    const part = partId;
+    const newAction = (actionRaw || '').trim();
+    if (!part || !newAction) return { added: false, value: '' };
+    if (newAction.toLowerCase() === 'neutre') {
+      window.alert("Le mot Neutre est réservé.");
+      return { added: false, value: '' };
+    }
+
+    ensureActionSet(part);
+    const exists = (actionSets[part] || []).some(item => (item || '').toLowerCase() === newAction.toLowerCase());
+    if (!exists) {
+      actionSets[part].push(newAction);
+      await persistCustomActionSets();
+    }
+
+    Array.from(stepsBody.querySelectorAll(`select[data-part="${part}"]`)).forEach(select => {
+      const hasOption = Array.from(select.options).some(o => (o.value || '').toLowerCase() === newAction.toLowerCase());
+      if (!hasOption) {
+        const opt = document.createElement('option');
+        opt.value = newAction;
+        opt.textContent = newAction;
+        select.appendChild(opt);
+      }
+    });
+
+    const actionPartSelect = $('actionPartSelect');
+    const existingActionSelect = $('existingActionSelect');
+    if (actionPartSelect && existingActionSelect && actionPartSelect.value === part) {
+      const has = Array.from(existingActionSelect.options).some(o => (o.value || '').toLowerCase() === newAction.toLowerCase());
+      if (!has) {
+        const opt = document.createElement('option');
+        opt.value = newAction;
+        opt.textContent = newAction;
+        existingActionSelect.appendChild(opt);
+      }
+    }
+
+    renderActionLibrary();
+    markFileDirty();
+    return { added: !exists, value: newAction };
+  }
+
   function mergeUniqueActions(baseList, incomingList) {
     const base = Array.isArray(baseList) ? baseList : [];
     const incoming = Array.isArray(incomingList) ? incomingList : [];
@@ -1155,10 +1198,11 @@
   function createRowElement(stepData) {
     const data = stepData || { comments: createEmptyComments() };
     const tr = document.createElement('tr');
-    tr.innerHTML = '<td class="step-number"></td>' + orderedParts().map(part => `<td class="case-cell"><div class="cell-editor"><select data-part="${part}"></select><textarea class="inline-comment" data-comment="${part}" placeholder="Commentaire libre"></textarea></div></td>`).join('') + '<td class="input-cell"><input type="text" data-part="commentaire" placeholder="Commentaire global de l\'étape" /></td><td class="actions-cell"><div class="row-actions"><button class="compact-btn secondary move-up" type="button">Monter</button><button class="compact-btn secondary move-down" type="button">Descendre</button><button class="compact-btn danger delete-row" type="button">Supprimer</button></div></td>';
+    tr.innerHTML = '<td class="step-number"></td>' + orderedParts().map(part => `<td class="case-cell"><div class="cell-editor"><select data-part="${part}"></select><input class="inline-action-input" type="text" data-action-input="${part}" placeholder="Action (saisie)" /><textarea class="inline-comment" data-comment="${part}" placeholder="Commentaire libre"></textarea></div></td>`).join('') + '<td class="input-cell"><input type="text" data-part="commentaire" placeholder="Commentaire global de l\'étape" /></td><td class="actions-cell"><div class="row-actions"><button class="compact-btn secondary move-up" type="button">Monter</button><button class="compact-btn secondary move-down" type="button">Descendre</button><button class="compact-btn danger delete-row" type="button">Supprimer</button></div></td>';
 
     orderedParts().forEach(part => {
       const select = tr.querySelector(`select[data-part="${part}"]`);
+      const manualInput = tr.querySelector(`input[data-action-input="${part}"]`);
       const textarea = tr.querySelector(`textarea[data-comment="${part}"]`);
       const cell = select.closest('.case-cell');
       fillSelect(select, actionSets[part] || ['Neutre'], data[part] || 'Neutre');
@@ -1166,6 +1210,28 @@
       select.addEventListener('change', () => { select.title = select.value; updateSingleCellState(cell, select, textarea); refreshVisuals(); markFileDirty(); });
       textarea.addEventListener('input', () => { updateSingleCellState(cell, select, textarea); refreshVisuals(); markFileDirty(); });
       cell.addEventListener('contextmenu', event => { event.preventDefault(); cell.classList.toggle('comment-visible'); if (cell.classList.contains('comment-visible')) textarea.focus(); });
+
+      if (manualInput) {
+        const commit = async () => {
+          const raw = manualInput.value;
+          if (!raw || !raw.trim()) return;
+          const res = await addActionAndPropagate(part, raw);
+          if (res && res.value) {
+            select.value = res.value;
+            select.title = select.value;
+            manualInput.value = '';
+            updateSingleCellState(cell, select, textarea);
+            refreshVisuals();
+          }
+        };
+        manualInput.addEventListener('keydown', event => {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            commit();
+          }
+        });
+        manualInput.addEventListener('blur', () => { commit(); });
+      }
       updateSingleCellState(cell, select, textarea);
     });
 
@@ -1247,7 +1313,7 @@
           if (comment) classes.push('has-comment');
           html += `<div class="${classes.join(' ')}" data-mobile-part="${part}" data-step-index="${index}"><div class="mobile-part-label">${escapeHtml(memberLabelById(part))}</div><select data-mobile-select="${part}">`;
           (actionSets[part] || ['Neutre']).forEach(opt => { html += `<option value="${escapeHtml(opt)}"${opt === action ? ' selected' : ''}>${escapeHtml(opt)}</option>`; });
-          html += `</select><textarea data-mobile-comment="${part}" placeholder="Commentaire libre">${escapeHtml(comment)}</textarea></div>`;
+          html += `</select><input class="mobile-action-input" type="text" data-mobile-action-input="${part}" placeholder="Action (saisie)" /><textarea data-mobile-comment="${part}" placeholder="Commentaire libre">${escapeHtml(comment)}</textarea></div>`;
         });
         html += `</div><div class="mobile-step-comment"><input type="text" data-mobile-step-comment value="${escapeHtml(row.commentaire || '')}" placeholder="Commentaire global de l'étape" /></div>`;
         html += `<div class="mobile-step-actions"><button class="compact-btn secondary" type="button" data-mobile-up="${index}">Monter</button><button class="compact-btn secondary" type="button" data-mobile-down="${index}">Descendre</button><button class="compact-btn danger" type="button" data-mobile-delete="${index}">Supprimer</button></div>`;
@@ -1267,6 +1333,28 @@
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-open]')).forEach(btn => btn.addEventListener('click', () => { mobileStepsWrap.dataset.selectedIndex = btn.getAttribute('data-mobile-open'); renderMobileView(); }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-part]')).forEach(partEl => partEl.addEventListener('contextmenu', event => { event.preventDefault(); partEl.classList.toggle('comment-visible'); const textarea = partEl.querySelector('textarea'); if (partEl.classList.contains('comment-visible')) textarea.focus(); }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-select]')).forEach(selectEl => selectEl.addEventListener('change', () => { const stepIndex = Number(selectEl.closest('.mobile-step-card').dataset.stepIndex); const part = selectEl.getAttribute('data-mobile-select'); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceSelect = row.querySelector(`select[data-part="${part}"]`); sourceSelect.value = selectEl.value; sourceSelect.dispatchEvent(new Event('change')); }));
+    Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-action-input]')).forEach(inputEl => {
+      const commit = async () => {
+        const raw = inputEl.value;
+        if (!raw || !raw.trim()) return;
+        const stepIndex = Number(inputEl.closest('.mobile-step-card').dataset.stepIndex);
+        const part = inputEl.getAttribute('data-mobile-action-input');
+        const res = await addActionAndPropagate(part, raw);
+        if (res && res.value) {
+          const row = stepsBody.querySelectorAll('tr')[stepIndex];
+          const sourceSelect = row.querySelector(`select[data-part="${part}"]`);
+          sourceSelect.value = res.value;
+          sourceSelect.dispatchEvent(new Event('change'));
+        }
+      };
+      inputEl.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          commit();
+        }
+      });
+      inputEl.addEventListener('blur', () => { commit(); });
+    });
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-comment]')).forEach(textareaEl => textareaEl.addEventListener('input', () => { const stepIndex = Number(textareaEl.closest('.mobile-step-card').dataset.stepIndex); const part = textareaEl.getAttribute('data-mobile-comment'); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceTextarea = row.querySelector(`textarea[data-comment="${part}"]`); sourceTextarea.value = textareaEl.value; sourceTextarea.dispatchEvent(new Event('input')); }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-step-comment]')).forEach(inputEl => inputEl.addEventListener('input', () => { const stepIndex = Number(inputEl.closest('.mobile-step-card').dataset.stepIndex); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceInput = row.querySelector('input[data-part="commentaire"]'); sourceInput.value = inputEl.value; sourceInput.dispatchEvent(new Event('input')); }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-up]')).forEach(btn => btn.addEventListener('click', () => { const stepIndex = Number(btn.getAttribute('data-mobile-up')); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const previous = row && row.previousElementSibling; if (previous) { stepsBody.insertBefore(row, previous); updateStepNumbers(); } }));
