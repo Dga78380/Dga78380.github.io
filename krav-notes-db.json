@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-11T14:20:33.375Z",
+  "exportedAt": "2026-04-12T15:36:56.399Z",
   "members": [
     {
       "id": "tete",
@@ -3857,6 +3857,7 @@
         }
       ],
       "title": "Couteau - Menace derrière sous la gorge",
+      "belt": "Marron",
       "initialState": "",
       "finalState": "",
       "attentionPoints": "",
@@ -3985,7 +3986,7 @@
           "commentaire": ""
         }
       ],
-      "exportedAt": "2026-04-11T14:20:33.375Z"
+      "exportedAt": "2026-04-12T15:35:42.040Z"
     },
     "Couteau - Menace derrière sur le côté de la gorge": {
       "version": 8,
@@ -4064,6 +4065,7 @@
         }
       ],
       "title": "Couteau - Menace derrière sur le côté de la gorge",
+      "belt": "Marron",
       "initialState": "",
       "finalState": "",
       "attentionPoints": "",
@@ -4110,12 +4112,23 @@
           "commentaire": ""
         }
       ],
-      "exportedAt": "2026-04-11T13:03:02.056Z"
+      "exportedAt": "2026-04-12T15:36:56.398Z"
     }
   },
   "settings": {
     "theme": "light",
     "language": "fr",
-    "hoverComments": true
+    "hoverComments": false,
+    "manualActions": true,
+    "belts": [
+      "Blanche",
+      "Jaune",
+      "Orange",
+      "Verte",
+      "Bleue",
+      "Marron",
+      "Noire",
+      "Marron-Noire"
+    ]
   }
 }
