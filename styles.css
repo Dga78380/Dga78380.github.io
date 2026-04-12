@@ -373,6 +373,14 @@ td.case-cell.has-comment {
   display: grid;
   gap: 8px;
 }
+.inline-action-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
 .inline-comment { display: none; }
 td.case-cell.comment-visible .inline-comment,
 td.case-cell:hover .inline-comment { display: block; }
@@ -449,6 +457,15 @@ body.no-hover-comments td.case-cell:hover .inline-comment { display: none; }
 }
 .mobile-part.is-active { background: var(--active-bg); }
 .mobile-part.has-comment { box-shadow: inset 0 0 0 2px var(--comment-border); }
+.mobile-action-input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+}
 .mobile-part textarea { display: none; margin-top: 8px; }
 .mobile-part.comment-visible textarea,
 .mobile-part:hover textarea { display: block; }
