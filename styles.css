@@ -381,6 +381,11 @@ td.case-cell.has-comment {
   background: var(--panel);
   color: var(--text);
 }
+
+body.no-manual-actions .inline-action-input,
+body.no-manual-actions .mobile-action-input {
+  display: none;
+}
 .inline-comment { display: none; }
 td.case-cell.comment-visible .inline-comment,
 td.case-cell:hover .inline-comment { display: block; }
@@ -530,6 +535,10 @@ body.no-hover-comments .mobile-part:hover textarea { display: none; }
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.checkbox-row input {
+  width: auto;
 }
 
 .diff-list {

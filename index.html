@@ -106,12 +106,16 @@
           <div class="card">
             <h2 data-i18n="steps">Étapes</h2>
             <div class="toolbar-row compact-gap">
-              <div class="field">
-                <label for="hoverCommentsToggle" data-i18n="hover_comments_toggle">Commentaires au survol</label>
-                <input id="hoverCommentsToggle" type="checkbox" />
-              </div>
               <button class="secondary" id="tableViewBtn" type="button" data-i18n="btn_table_view">Vue tableau</button>
               <button class="secondary" id="ganttViewBtn" type="button" data-i18n="btn_gantt_view">Vue gantt</button>
+              <label class="checkbox-row" for="hoverCommentsToggle">
+                <input id="hoverCommentsToggle" type="checkbox" />
+                <span data-i18n="hover_comments_toggle">Commentaires au survol</span>
+              </label>
+              <label class="checkbox-row" for="manualActionsToggle">
+                <input id="manualActionsToggle" type="checkbox" />
+                <span data-i18n="manual_actions_toggle">Ajout action</span>
+              </label>
               <button class="secondary mobile-only" id="mobileStepsViewBtn" type="button" data-i18n="btn_mobile_steps">Vue mobile étapes</button>
               <button class="secondary mobile-only" id="mobileGanttViewBtn" type="button" data-i18n="btn_mobile_gantt">Vue mobile gantt</button>
             </div>

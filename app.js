@@ -3,6 +3,7 @@
   const THEME_STORAGE_KEY = 'krav_notes_theme_v1';
   const LANGUAGE_STORAGE_KEY = 'krav_notes_language_v1';
   const HOVER_COMMENTS_STORAGE_KEY = 'krav_notes_hover_comments_v1';
+  const MANUAL_ACTIONS_STORAGE_KEY = 'krav_manual_actions';
   const DEFAULT_DB_FILENAME = 'krav-notes-db.json';
   const HANDLE_DB_NAME = 'self_defense_fs_db';
   const HANDLE_STORE_NAME = 'handles';
@@ -46,6 +47,7 @@
   let currentLanguage = 'fr';
   let isFileDirty = false;
   let hoverCommentsEnabled = true;
+  let manualActionsEnabled = true;
   let pendingMerge = null;
 
   const TRANSLATIONS = {
@@ -99,6 +101,7 @@
       btn_mobile_gantt: 'Vue mobile gantt',
       hint_right_click: 'Clic droit sur une case pour afficher ou masquer le commentaire libre.',
       hover_comments_toggle: 'Commentaires au survol',
+      manual_actions_toggle: 'Ajout action',
       actions_management: 'Gestion des actions',
       member_concerned: 'Membre concerné',
       new_action: 'Nouvelle action',
@@ -207,8 +210,9 @@
       btn_gantt_view: 'Gantt view',
       btn_mobile_steps: 'Mobile steps view',
       btn_mobile_gantt: 'Mobile gantt view',
-      hint_right_click: 'Right click a cell to show or hide the inline comment.',
+      hint_right_click: 'Right click a cell to show/hide the inline comment.',
       hover_comments_toggle: 'Comments on hover',
+      manual_actions_toggle: 'Add action',
       actions_management: 'Action management',
       member_concerned: 'Target member',
       new_action: 'New action',
@@ -318,7 +322,8 @@
       btn_mobile_steps: 'Mobile Schrittansicht',
       btn_mobile_gantt: 'Mobile Gantt-Ansicht',
       hint_right_click: 'Rechtsklick auf eine Zelle, um den Kommentar ein-/auszublenden.',
-      hover_comments_toggle: 'Kommentare beim Hover',
+      hover_comments_toggle: 'Kommentare beim Überfahren',
+      manual_actions_toggle: 'Aktion hinzufügen',
       actions_management: 'Aktionsverwaltung',
       member_concerned: 'Betroffenes Mitglied',
       new_action: 'Neue Aktion',
@@ -360,7 +365,7 @@
         '<p><strong>Schritt hinzufügen</strong>: fügt eine Zeile hinzu.</p>' +
         '<p><strong>Letzten duplizieren</strong>: dupliziert die letzte Zeile.</p>' +
         '<p><strong>Tabellenansicht / Gantt-Ansicht</strong>: wechselt die Darstellung. Auf Mobilgeräten die eigenen Buttons nutzen.</p>' +
-        '<p><strong>Kommentare beim Hover</strong>: aktiviert/deaktiviert die automatische Anzeige der freien Kommentare beim Hover.</p>' +
+        '<p><strong>Kommentare beim Überfahren</strong>: aktiviert/deaktiviert die automatische Anzeige der freien Kommentare beim Überfahren.</p>' +
         '<p><strong>Rechtsklick</strong> auf eine Zelle: zeigt/versteckt den Inline-Kommentar.</p>' +
         '<h3>Aktionsverwaltung</h3>' +
         '<p>Aktionen pro Mitglied (Mitglieder = Körperteile) hinzufügen / umbenennen.</p>' +
@@ -498,7 +503,8 @@
       settings: {
         theme: document.documentElement.getAttribute('data-theme') || 'light',
         language: currentLanguage,
-        hoverComments: hoverCommentsEnabled
+        hoverComments: hoverCommentsEnabled,
+        manualActions: manualActionsEnabled
       }
     };
   }
@@ -532,6 +538,7 @@
     if (safe.settings && safe.settings.theme) applyTheme(safe.settings.theme);
     if (safe.settings && safe.settings.language) applyLanguage(safe.settings.language);
     if (safe.settings && typeof safe.settings.hoverComments === 'boolean') applyHoverComments(safe.settings.hoverComments);
+    if (safe.settings && typeof safe.settings.manualActions === 'boolean') applyManualActions(safe.settings.manualActions);
 
     try {
       localStorage.setItem(DB_STORAGE_KEY, JSON.stringify(buildDatabaseObject()));
@@ -585,6 +592,15 @@
     updateDatabasePreview();
   }
 
+  function applyManualActions(enabled) {
+    manualActionsEnabled = !!enabled;
+    const toggle = document.getElementById('manualActionsToggle');
+    if (toggle) toggle.checked = manualActionsEnabled;
+    document.body.classList.toggle('no-manual-actions', !manualActionsEnabled);
+    try { localStorage.setItem(MANUAL_ACTIONS_STORAGE_KEY, manualActionsEnabled ? '1' : '0'); } catch { /* ignore */ }
+    updateDatabasePreview();
+  }
+
   function loadHoverComments() {
     const stored = (() => {
       try { return localStorage.getItem(HOVER_COMMENTS_STORAGE_KEY); } catch { return null; }
@@ -594,6 +610,17 @@
       return;
     }
     applyHoverComments(stored === '1');
+  }
+
+  function loadManualActions() {
+    const stored = (() => {
+      try { return localStorage.getItem(MANUAL_ACTIONS_STORAGE_KEY); } catch { return null; }
+    })();
+    if (stored === null) {
+      applyManualActions(true);
+      return;
+    }
+    applyManualActions(stored === '1');
   }
 
   function setFileDirty(next) {
@@ -2202,10 +2229,14 @@
   const hoverCommentsToggle = document.getElementById('hoverCommentsToggle');
   if (hoverCommentsToggle) hoverCommentsToggle.addEventListener('change', () => applyHoverComments(hoverCommentsToggle.checked));
 
+  const manualActionsToggle = document.getElementById('manualActionsToggle');
+  if (manualActionsToggle) manualActionsToggle.addEventListener('change', () => applyManualActions(manualActionsToggle.checked));
+
   (async function init() {
     loadTheme();
     loadLanguage();
     loadHoverComments();
+    loadManualActions();
     dbFileHandle = await loadDbFileHandle();
     if (dbFileHandle && dbFileHandle.queryPermission) {
       try {
