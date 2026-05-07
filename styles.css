@@ -467,9 +467,12 @@ body.no-manual-actions .mobile-action-input {
 }
 .inline-comment { display: none; }
 td.case-cell.comment-visible .inline-comment,
+td.case-cell:focus-within .inline-comment,
 td.case-cell:hover .inline-comment { display: block; }
 
 body.no-hover-comments td.case-cell:hover .inline-comment { display: none; }
+body.no-hover-comments td.case-cell:focus-within .inline-comment,
+body.no-hover-comments td.case-cell.comment-visible .inline-comment { display: block; }
 .gantt-grid { display: grid; min-width: 980px; }
 .gantt-header,
 .gantt-row {
@@ -552,9 +555,12 @@ body.no-hover-comments td.case-cell:hover .inline-comment { display: none; }
 }
 .mobile-part textarea { display: none; margin-top: 8px; }
 .mobile-part.comment-visible textarea,
+.mobile-part:focus-within textarea,
 .mobile-part:hover textarea { display: block; }
 
 body.no-hover-comments .mobile-part:hover textarea { display: none; }
+body.no-hover-comments .mobile-part:focus-within textarea,
+body.no-hover-comments .mobile-part.comment-visible textarea { display: block; }
 .mobile-condensed-item {
   border: 1px solid var(--line);
   border-radius: 14px;

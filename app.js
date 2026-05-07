@@ -1614,6 +1614,8 @@
       textarea.value = data.comments && data.comments[part] ? data.comments[part] : '';
       select.addEventListener('change', () => { select.title = select.value; updateSingleCellState(cell, select, textarea); refreshVisuals(); markFileDirty(); });
       textarea.addEventListener('input', () => { updateSingleCellState(cell, select, textarea); refreshVisuals(); markFileDirty(); });
+      textarea.addEventListener('focus', () => { cell.classList.add('comment-visible'); });
+      textarea.addEventListener('blur', () => { if (!textarea.value.trim()) cell.classList.remove('comment-visible'); });
       cell.addEventListener('contextmenu', event => { event.preventDefault(); cell.classList.toggle('comment-visible'); if (cell.classList.contains('comment-visible')) textarea.focus(); });
 
       if (manualInput) {
@@ -1760,14 +1762,32 @@
       });
       inputEl.addEventListener('blur', () => { commit(); });
     });
-    Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-comment]')).forEach(textareaEl => textareaEl.addEventListener('input', () => { const stepIndex = Number(textareaEl.closest('.mobile-step-card').dataset.stepIndex); const part = textareaEl.getAttribute('data-mobile-comment'); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceTextarea = row.querySelector(`textarea[data-comment="${part}"]`); sourceTextarea.value = textareaEl.value; sourceTextarea.dispatchEvent(new Event('input')); }));
+    Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-comment]')).forEach(textareaEl => {
+      const partEl = textareaEl.closest('.mobile-part');
+      textareaEl.addEventListener('focus', () => { if (partEl) partEl.classList.add('comment-visible'); });
+      textareaEl.addEventListener('blur', () => { if (partEl && !textareaEl.value.trim()) partEl.classList.remove('comment-visible'); });
+      textareaEl.addEventListener('input', () => { const stepIndex = Number(textareaEl.closest('.mobile-step-card').dataset.stepIndex); const part = textareaEl.getAttribute('data-mobile-comment'); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceTextarea = row.querySelector(`textarea[data-comment="${part}"]`); sourceTextarea.value = textareaEl.value; sourceTextarea.dispatchEvent(new Event('input')); });
+    });
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-step-comment]')).forEach(inputEl => inputEl.addEventListener('input', () => { const stepIndex = Number(inputEl.closest('.mobile-step-card').dataset.stepIndex); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const sourceInput = row.querySelector('input[data-part="commentaire"]'); sourceInput.value = inputEl.value; sourceInput.dispatchEvent(new Event('input')); }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-up]')).forEach(btn => btn.addEventListener('click', () => { const stepIndex = Number(btn.getAttribute('data-mobile-up')); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const previous = row && row.previousElementSibling; if (previous) { stepsBody.insertBefore(row, previous); updateStepNumbers(); } }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-down]')).forEach(btn => btn.addEventListener('click', () => { const stepIndex = Number(btn.getAttribute('data-mobile-down')); const row = stepsBody.querySelectorAll('tr')[stepIndex]; const next = row && row.nextElementSibling; if (next) { stepsBody.insertBefore(next, row); updateStepNumbers(); } }));
     Array.from(mobileStepsWrap.querySelectorAll('[data-mobile-delete]')).forEach(btn => btn.addEventListener('click', () => { const stepIndex = Number(btn.getAttribute('data-mobile-delete')); const row = stepsBody.querySelectorAll('tr')[stepIndex]; if (row) { row.remove(); if (!stepsBody.children.length) addStep(); updateStepNumbers(); } }));
   }
 
-  function refreshVisuals() { updateCellStates(); renderGanttView(); renderMobileView(); renderMobileGanttView(); }
+  function isEditingStepInput() {
+    const active = document.activeElement;
+    if (!active) return false;
+    return !!active.closest('.case-cell, .mobile-part, .mobile-step-comment');
+  }
+
+  function refreshVisuals() {
+    updateCellStates();
+    renderGanttView();
+    if (!isEditingStepInput()) {
+      renderMobileView();
+      renderMobileGanttView();
+    }
+  }
   function updateStepNumbers() { Array.from(stepsBody.querySelectorAll('tr')).forEach((row, index) => { row.querySelector('.step-number').textContent = index + 1; }); refreshVisuals(); }
 
   function renderMemberLibrary() {
