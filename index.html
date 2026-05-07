@@ -36,7 +36,7 @@
         <button class="secondary expert-only" id="mergeDatabaseBtn" type="button" data-i18n="btn_merge_db">Fusionner une base JSON</button>
         <input id="mergeDatabaseFile" type="file" accept="application/json,.json" hidden />
         <button class="primary" id="saveDatabaseBtn" type="button" data-i18n="btn_save">Sauvegarder</button>
-        <button class="secondary" id="saveAsDatabaseBtn" type="button" data-i18n="btn_save_as">Sauvegarder sous</button>
+        <button class="secondary expert-only" id="saveAsDatabaseBtn" type="button" data-i18n="btn_save_as">Sauvegarder sous</button>
       </div>
     </div>
   </header>
@@ -52,7 +52,7 @@
     </aside>
 
     <section class="content">
-      <div class="top-status card">
+      <div class="top-status card expert-only">
         <div>
           <strong data-i18n="current_file">Fichier courant :</strong>
           <span id="currentFileLabel">Aucun fichier sélectionné</span>

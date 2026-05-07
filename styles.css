@@ -690,6 +690,12 @@ body.no-hover-comments .mobile-part:hover textarea { display: none; }
     flex-direction: column;
     align-items: stretch;
   }
+  .page-toolbar {
+    gap: 8px;
+  }
+  .page-toolbar .field {
+    gap: 3px;
+  }
   #tableViewBtn,
   #ganttViewBtn { display: none !important; }
   .table-wrap,

@@ -826,6 +826,15 @@
     showMobileEditView();
   }
 
+  function openGeneralInfoAndFocusTitle() {
+    const card = document.getElementById('generalInfoCard');
+    if (card) card.classList.remove('collapsed');
+    try { sessionStorage.setItem('generalInfoCollapsed', '0'); } catch { /* ignore */ }
+    refreshCollapseIndicators();
+    const titleInput = $('title');
+    if (titleInput) titleInput.focus();
+  }
+
   function loadLanguage() {
     const stored = (() => {
       try { return localStorage.getItem(LANGUAGE_STORAGE_KEY); } catch { return null; }
@@ -2287,6 +2296,7 @@
       techniqueSelect.title = '';
     }
     applyTechniqueData({});
+    openGeneralInfoAndFocusTitle();
     setStorageInfo('Nouvelle technique.', false);
   });
 
