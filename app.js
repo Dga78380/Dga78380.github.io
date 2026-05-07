@@ -866,7 +866,14 @@
   function setStorageMode(mode) {
     storageMode = mode === 'cloud' ? 'cloud' : 'local';
     const toggle = document.getElementById('cloudLocalSwitchToggle');
-    if (toggle) toggle.checked = storageMode === 'cloud';
+    if (toggle) {
+      toggle.checked = storageMode === 'cloud';
+      const wrapper = toggle.closest('.cloud-local-switch');
+      if (wrapper) {
+        wrapper.classList.toggle('mode-local', storageMode === 'local');
+        wrapper.classList.toggle('mode-cloud', storageMode === 'cloud');
+      }
+    }
     try { localStorage.setItem(STORAGE_MODE_KEY, storageMode); } catch { /* ignore */ }
   }
 
@@ -1026,12 +1033,13 @@
     const previousMode = storageMode;
     try {
       if (nextMode === 'cloud') {
-        await loadDatabaseFromUrl();
+        const loaded = await loadDatabaseFromCloudFile();
+        if (!loaded) setStorageMode(previousMode);
         return;
       }
       setStorageMode('local');
       const loaded = await loadLocalDatabaseOrAsk();
-      if (!loaded) setStorageMode('cloud');
+      if (!loaded) setStorageMode(previousMode);
     } catch (error) {
       console.error(error);
       setStorageInfo(nextMode === 'cloud' ? 'Chargement Cloud impossible.' : 'Chargement local impossible.', true);
@@ -1082,6 +1090,28 @@
     } catch (error) {
       console.error(error);
       setStorageInfo('Chargement depuis URL impossible.', true);
+    }
+  }
+
+  async function loadDatabaseFromCloudFile() {
+    try {
+      const cloud = await fetchDatabaseFromCloudUrl(false);
+      if (!cloud) return false;
+      applyDatabaseObject(cloud.parsed);
+      dbFileHandle = null;
+      currentDbName = cloud.url;
+      setCurrentFileLabel(cloud.url);
+      setStorageMode('cloud');
+      setStorageInfo('Base JSON Cloud chargée depuis le répertoire de l’application.', false);
+      updateDatabasePreview();
+      hideStartupModal();
+      await initializeData(true);
+      setFileDirty(false);
+      return true;
+    } catch (error) {
+      console.error(error);
+      setStorageInfo(`Fichier Cloud ${DEFAULT_DB_FILENAME} introuvable dans le répertoire de l’application.`, true);
+      return false;
     }
   }
 

@@ -190,12 +190,24 @@ body:not(.expert-mode) .expert-only {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.75);
   font-weight: 700;
+  cursor: pointer;
+  user-select: none;
 }
 
 .cloud-local-switch input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+
+.cloud-local-switch-label {
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.cloud-local-switch.mode-local .cloud-local-switch-label-local,
+.cloud-local-switch.mode-cloud .cloud-local-switch-label-cloud {
+  color: #1d4ed8;
 }
 
 .cloud-local-switch-slider {
