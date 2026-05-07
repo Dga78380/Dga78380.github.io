@@ -102,8 +102,8 @@
       btn_duplicate_last: 'Dupliquer la dernière',
       btn_table_view: 'Vue Modification',
       btn_gantt_view: 'Vue Lecture',
-      btn_mobile_steps: 'Vue mobile étapes',
-      btn_mobile_gantt: 'Vue mobile gantt',
+      btn_mobile_switch_to_read: 'Passer en lecture',
+      btn_mobile_switch_to_edit: 'Passer en modification',
       hint_right_click: 'Clic droit sur une case pour afficher ou masquer le commentaire libre.',
       hover_comments_toggle: 'Commentaires au survol',
       manual_actions_toggle: 'Ajout action',
@@ -218,8 +218,8 @@
       btn_duplicate_last: 'Duplicate last',
       btn_table_view: 'Edit view',
       btn_gantt_view: 'Read view',
-      btn_mobile_steps: 'Mobile steps view',
-      btn_mobile_gantt: 'Mobile gantt view',
+      btn_mobile_switch_to_read: 'Switch to read',
+      btn_mobile_switch_to_edit: 'Switch to edit',
       hint_right_click: 'Right click a cell to show/hide the inline comment.',
       hover_comments_toggle: 'Comments on hover',
       manual_actions_toggle: 'Add action',
@@ -334,8 +334,8 @@
       btn_duplicate_last: 'Letzten duplizieren',
       btn_table_view: 'Bearbeitungsansicht',
       btn_gantt_view: 'Leseansicht',
-      btn_mobile_steps: 'Mobile Schrittansicht',
-      btn_mobile_gantt: 'Mobile Gantt-Ansicht',
+      btn_mobile_switch_to_read: 'Zur Leseansicht wechseln',
+      btn_mobile_switch_to_edit: 'Zur Bearbeitung wechseln',
       hint_right_click: 'Rechtsklick auf eine Zelle, um den Kommentar ein-/auszublenden.',
       hover_comments_toggle: 'Kommentare beim Überfahren',
       manual_actions_toggle: 'Aktion hinzufügen',
@@ -790,14 +790,47 @@
   }
 
   function applyLanguage(lang) {
-    const normalized = (lang === 'en' || lang === 'de') ? lang : 'fr';
-    currentLanguage = normalized;
+    currentLanguage = TRANSLATIONS[lang] ? lang : 'fr';
+    document.documentElement.lang = currentLanguage;
     const select = document.getElementById('languageSelect');
-    if (select) select.value = normalized;
-    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, normalized); } catch { /* ignore */ }
+    if (select) select.value = currentLanguage;
     applyTranslationsToDom();
     refreshCollapseIndicators();
+    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage); } catch { /* ignore */ }
     updateDatabasePreview();
+    updateMobileViewSwitchLabel();
+  }
+
+  function updateMobileViewSwitchLabel() {
+    const btn = $('mobileViewSwitchBtn');
+    if (!btn || !mobileStepsWrap || !mobileGanttWrap) return;
+    const key = mobileGanttWrap.classList.contains('active') ? 'btn_mobile_switch_to_edit' : 'btn_mobile_switch_to_read';
+    btn.dataset.i18n = key;
+    btn.textContent = (TRANSLATIONS[currentLanguage] && TRANSLATIONS[currentLanguage][key]) || TRANSLATIONS.fr[key] || '';
+  }
+
+  function showMobileEditView() {
+    if (!mobileStepsWrap || !mobileGanttWrap) return;
+    renderMobileView();
+    mobileStepsWrap.classList.add('active');
+    mobileGanttWrap.classList.remove('active');
+    updateMobileViewSwitchLabel();
+  }
+
+  function showMobileReadView() {
+    if (!mobileStepsWrap || !mobileGanttWrap) return;
+    renderMobileGanttView();
+    mobileGanttWrap.classList.add('active');
+    mobileStepsWrap.classList.remove('active');
+    updateMobileViewSwitchLabel();
+  }
+
+  function switchMobileView() {
+    if (mobileGanttWrap && mobileGanttWrap.classList.contains('active')) {
+      showMobileEditView();
+      return;
+    }
+    showMobileReadView();
   }
 
   function loadLanguage() {
@@ -1809,10 +1842,12 @@
       if (tableWrap) tableWrap.classList.remove('active');
       if (ganttWrap) ganttWrap.classList.remove('active');
       if (mobileStepsWrap && mobileGanttWrap && !mobileStepsWrap.classList.contains('active') && !mobileGanttWrap.classList.contains('active')) mobileStepsWrap.classList.add('active');
+      updateMobileViewSwitchLabel();
     } else {
       if (mobileStepsWrap) mobileStepsWrap.classList.remove('active');
       if (mobileGanttWrap) mobileGanttWrap.classList.remove('active');
       if (tableWrap && ganttWrap && !tableWrap.classList.contains('active') && !ganttWrap.classList.contains('active')) tableWrap.classList.add('active');
+      updateMobileViewSwitchLabel();
     }
   }
 
@@ -2305,11 +2340,8 @@
   const ganttViewBtn = $('ganttViewBtn');
   if (ganttViewBtn && tableWrap && ganttWrap) ganttViewBtn.addEventListener('click', () => { renderGanttView(); ganttWrap.classList.add('active'); tableWrap.classList.remove('active'); });
 
-  const mobileStepsViewBtn = $('mobileStepsViewBtn');
-  if (mobileStepsViewBtn && mobileStepsWrap && mobileGanttWrap) mobileStepsViewBtn.addEventListener('click', () => { renderMobileView(); mobileStepsWrap.classList.add('active'); mobileGanttWrap.classList.remove('active'); });
-
-  const mobileGanttViewBtn = $('mobileGanttViewBtn');
-  if (mobileGanttViewBtn && mobileStepsWrap && mobileGanttWrap) mobileGanttViewBtn.addEventListener('click', () => { renderMobileGanttView(); mobileGanttWrap.classList.add('active'); mobileStepsWrap.classList.remove('active'); });
+  const mobileViewSwitchBtn = $('mobileViewSwitchBtn');
+  if (mobileViewSwitchBtn && mobileStepsWrap && mobileGanttWrap) mobileViewSwitchBtn.addEventListener('click', switchMobileView);
 
   const memberSelect = $('memberSelect');
   if (memberSelect) memberSelect.addEventListener('change', () => { const id = memberSelect.value; const actionPartSelect = $('actionPartSelect'); if (actionPartSelect) actionPartSelect.value = id; refreshExistingActions(); });
