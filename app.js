@@ -1028,6 +1028,11 @@
     return true;
   }
 
+  async function loadLocalDatabaseForSwitch() {
+    try { localStorage.removeItem(LOCAL_FILE_MISSING_ACK_KEY); } catch { /* ignore */ }
+    return loadLocalDatabaseOrAsk();
+  }
+
   async function switchStorageMode() {
     const toggle = document.getElementById('cloudLocalSwitchToggle');
     const nextMode = storageMode === 'cloud' ? 'local' : 'cloud';
@@ -1040,7 +1045,7 @@
         return;
       }
       setStorageMode('local');
-      const loaded = await loadLocalDatabaseOrAsk();
+      const loaded = await loadLocalDatabaseForSwitch();
       if (!loaded) setStorageMode(previousMode);
     } catch (error) {
       console.error(error);
