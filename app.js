@@ -2530,7 +2530,14 @@
   });
 
   const newTechniqueBtn = $('newTechniqueBtn');
-  if (newTechniqueBtn) newTechniqueBtn.addEventListener('click', () => {
+  if (newTechniqueBtn) newTechniqueBtn.addEventListener('click', async () => {
+    if (storageMode !== 'local' || !dbFileHandle) {
+      const loaded = await loadLocalDatabaseForSwitch();
+      if (!loaded) {
+        setStorageInfo('Création annulée : aucun fichier local sélectionné.', true);
+        return;
+      }
+    }
     const techniqueSelect = $('techniqueName');
     if (techniqueSelect) {
       techniqueSelect.value = '';
