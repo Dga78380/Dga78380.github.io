@@ -1033,6 +1033,36 @@
     return loadLocalDatabaseOrAsk();
   }
 
+  async function loadExistingLocalDatabaseForEdit() {
+    let handle = dbFileHandle || await loadDbFileHandle();
+    if (handle && handle.queryPermission) {
+      const permission = await handle.queryPermission({ mode: 'readwrite' });
+      if (permission !== 'granted' && handle.requestPermission) {
+        const requested = await handle.requestPermission({ mode: 'readwrite' });
+        if (requested !== 'granted') handle = null;
+      }
+    }
+
+    if (!handle && window.showOpenFilePicker) {
+      handle = await pickDatabaseFileHandle();
+    }
+
+    if (!handle) return false;
+    dbFileHandle = handle;
+    await saveDbFileHandle(dbFileHandle);
+    const parsed = await readDatabaseFromHandle(dbFileHandle);
+    applyDatabaseObject(parsed);
+    currentDbName = dbFileHandle.name || '';
+    setCurrentFileLabel(currentDbName || 'Base locale liée');
+    setStorageMode('local');
+    try { localStorage.removeItem(LOCAL_FILE_MISSING_ACK_KEY); } catch { /* ignore */ }
+    setStorageInfo('Base locale chargée.', false);
+    hideStartupModal();
+    await initializeData(true);
+    setFileDirty(false);
+    return true;
+  }
+
   async function switchStorageMode() {
     const toggle = document.getElementById('cloudLocalSwitchToggle');
     const nextMode = storageMode === 'cloud' ? 'local' : 'cloud';
@@ -2532,7 +2562,7 @@
   const newTechniqueBtn = $('newTechniqueBtn');
   if (newTechniqueBtn) newTechniqueBtn.addEventListener('click', async () => {
     if (storageMode !== 'local' || !dbFileHandle) {
-      const loaded = await loadLocalDatabaseForSwitch();
+      const loaded = await loadExistingLocalDatabaseForEdit();
       if (!loaded) {
         setStorageInfo('Création annulée : aucun fichier local sélectionné.', true);
         return;
