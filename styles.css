@@ -180,6 +180,50 @@ body:not(.expert-mode) .expert-only {
   background: rgba(255, 255, 255, 0.75);
 }
 
+.cloud-local-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+}
+
+.cloud-local-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cloud-local-switch-slider {
+  position: relative;
+  width: 54px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #bfdbfe;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.2);
+}
+
+.cloud-local-switch-slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: #2563eb;
+  transition: transform 0.2s ease;
+}
+
+.cloud-local-switch input:checked + .cloud-local-switch-slider::before {
+  transform: translateX(26px);
+}
+
 .app-shell {
   width: min(1800px, calc(100% - 24px));
   margin: 18px auto 32px;

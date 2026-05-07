@@ -5,6 +5,8 @@
   const HOVER_COMMENTS_STORAGE_KEY = 'krav_notes_hover_comments_v1';
   const MANUAL_ACTIONS_STORAGE_KEY = 'krav_manual_actions';
   const EXPERT_MODE_STORAGE_KEY = 'krav_expert_mode_v1';
+  const STORAGE_MODE_KEY = 'krav_storage_mode_v1';
+  const LOCAL_FILE_MISSING_ACK_KEY = 'krav_local_file_missing_ack_v1';
   const DEFAULT_DB_FILENAME = 'krav-notes-db.json';
   const HANDLE_DB_NAME = 'self_defense_fs_db';
   const HANDLE_STORE_NAME = 'handles';
@@ -50,6 +52,7 @@
   let hoverCommentsEnabled = true;
   let manualActionsEnabled = true;
   let expertModeEnabled = false;
+  let storageMode = 'local';
   let belts = ['Blanche', 'Jaune', 'Orange', 'Verte', 'Bleue', 'Marron', 'Noire'];
   let beltFilterValue = '';
   let pendingMerge = null;
@@ -66,6 +69,8 @@
       btn_load_db_url: 'Charger depuis GitHub',
       btn_merge_db: 'Fusionner une base JSON',
       expert_mode: 'Mode expert',
+      storage_local: 'Local',
+      storage_cloud: 'Cloud',
       btn_save: 'Sauvegarder',
       btn_save_as: 'Sauvegarder sous',
       nav_techniques: 'Techniques',
@@ -180,6 +185,8 @@
       btn_load_db_url: 'Load from URL',
       btn_merge_db: 'Merge JSON database',
       expert_mode: 'Expert mode',
+      storage_local: 'Local',
+      storage_cloud: 'Cloud',
       btn_save: 'Save',
       btn_save_as: 'Save as',
       nav_techniques: 'Techniques',
@@ -294,6 +301,8 @@
       btn_load_db_url: 'Von URL laden',
       btn_merge_db: 'JSON-Datenbank zusammenführen',
       expert_mode: 'Expertenmodus',
+      storage_local: 'Lokal',
+      storage_cloud: 'Cloud',
       btn_save: 'Speichern',
       btn_save_as: 'Speichern unter',
       nav_techniques: 'Techniken',
@@ -846,6 +855,190 @@
     return safeJsonParse(localStorage.getItem(DB_STORAGE_KEY) || '', null);
   }
 
+  function getStoredCloudUrl() {
+    try { return localStorage.getItem('krav_notes_db_url') || ''; } catch { return ''; }
+  }
+
+  function getDefaultCloudUrl() {
+    return DEFAULT_DB_FILENAME;
+  }
+
+  function setStorageMode(mode) {
+    storageMode = mode === 'cloud' ? 'cloud' : 'local';
+    const toggle = document.getElementById('cloudLocalSwitchToggle');
+    if (toggle) toggle.checked = storageMode === 'cloud';
+    try { localStorage.setItem(STORAGE_MODE_KEY, storageMode); } catch { /* ignore */ }
+  }
+
+  function loadStorageMode() {
+    const stored = (() => {
+      try { return localStorage.getItem(STORAGE_MODE_KEY); } catch { return null; }
+    })();
+    setStorageMode(stored === 'cloud' ? 'cloud' : 'local');
+  }
+
+  async function fetchDatabaseFromCloudUrl(askIfMissing) {
+    let url = askIfMissing ? getStoredCloudUrl() : getDefaultCloudUrl();
+    if (askIfMissing || !url.trim()) {
+      const next = window.prompt('URL du fichier JSON GitHub / Cloud :', url || 'krav-notes-db.json');
+      if (!next || !next.trim()) return null;
+      url = next.trim();
+      try { localStorage.setItem('krav_notes_db_url', url); } catch { /* ignore */ }
+    }
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`http_${response.status}`);
+    const text = await response.text();
+    const parsed = safeJsonParse(text, null);
+    if (!parsed) throw new Error('invalid_json');
+    return { parsed, url };
+  }
+
+  async function writeDatabaseObjectToHandle(handle, dbObject) {
+    const writable = await handle.createWritable();
+    await writable.write(JSON.stringify(dbObject, null, 2));
+    await writable.close();
+  }
+
+  async function askLocalDatabaseLocationFromCloud(cloudDb) {
+    if (!window.showSaveFilePicker) {
+      applyDatabaseObject(cloudDb);
+      persistDatabaseLocalFallback();
+      setStorageInfo('API fichier indisponible : copie locale conservée dans le navigateur.', false);
+      return false;
+    }
+    const handle = await pickSaveDatabaseFileHandle(DEFAULT_DB_FILENAME);
+    if (!handle) return false;
+    await writeDatabaseObjectToHandle(handle, cloudDb);
+    dbFileHandle = handle;
+    await saveDbFileHandle(dbFileHandle);
+    currentDbName = dbFileHandle.name || DEFAULT_DB_FILENAME;
+    setCurrentFileLabel(currentDbName);
+    try { localStorage.removeItem(LOCAL_FILE_MISSING_ACK_KEY); } catch { /* ignore */ }
+    return true;
+  }
+
+  async function ensureLocalDatabaseHandleForSave() {
+    if (dbFileHandle) {
+      try {
+        if (dbFileHandle.queryPermission) {
+          const permission = await dbFileHandle.queryPermission({ mode: 'readwrite' });
+          if (permission === 'granted') return true;
+          if (dbFileHandle.requestPermission) {
+            const requested = await dbFileHandle.requestPermission({ mode: 'readwrite' });
+            if (requested === 'granted') return true;
+          }
+        } else {
+          return true;
+        }
+      } catch {
+        dbFileHandle = null;
+      }
+    }
+
+    const storedHandle = await loadDbFileHandle();
+    if (storedHandle) {
+      dbFileHandle = storedHandle;
+      return ensureLocalDatabaseHandleForSave();
+    }
+
+    if (!window.showSaveFilePicker) return false;
+    const handle = await pickSaveDatabaseFileHandle(DEFAULT_DB_FILENAME);
+    if (!handle) return false;
+    dbFileHandle = handle;
+    await saveDbFileHandle(dbFileHandle);
+    currentDbName = dbFileHandle.name || DEFAULT_DB_FILENAME;
+    setCurrentFileLabel(currentDbName);
+    setStorageMode('local');
+    try { localStorage.removeItem(LOCAL_FILE_MISSING_ACK_KEY); } catch { /* ignore */ }
+    return true;
+  }
+
+  async function loadLocalDatabaseOrAsk() {
+    let handle = dbFileHandle || await loadDbFileHandle();
+    if (handle && handle.queryPermission) {
+      const permission = await handle.queryPermission({ mode: 'readwrite' });
+      if (permission !== 'granted' && handle.requestPermission) {
+        const requested = await handle.requestPermission({ mode: 'readwrite' });
+        if (requested !== 'granted') handle = null;
+      }
+    }
+
+    if (handle) {
+      dbFileHandle = handle;
+      const parsed = await readDatabaseFromHandle(dbFileHandle);
+      applyDatabaseObject(parsed);
+      currentDbName = dbFileHandle.name || '';
+      setCurrentFileLabel(currentDbName || 'Base locale liée');
+      setStorageMode('local');
+      setStorageInfo('Base locale chargée.', false);
+      hideStartupModal();
+      await initializeData(true);
+      setFileDirty(false);
+      return true;
+    }
+
+    const alreadyNotified = (() => {
+      try { return localStorage.getItem(LOCAL_FILE_MISSING_ACK_KEY) === '1'; } catch { return false; }
+    })();
+    if (alreadyNotified) return false;
+
+    try { localStorage.setItem(LOCAL_FILE_MISSING_ACK_KEY, '1'); } catch { /* ignore */ }
+
+    if (window.showOpenFilePicker && window.confirm("L'emplacement du fichier local est introuvable. Voulez-vous sélectionner un fichier JSON local existant ?")) {
+      const selectedHandle = await pickDatabaseFileHandle();
+      if (selectedHandle) {
+        dbFileHandle = selectedHandle;
+        await saveDbFileHandle(dbFileHandle);
+        const parsed = await readDatabaseFromHandle(dbFileHandle);
+        applyDatabaseObject(parsed);
+        currentDbName = dbFileHandle.name || '';
+        setCurrentFileLabel(currentDbName || 'Base locale liée');
+        setStorageMode('local');
+        try { localStorage.removeItem(LOCAL_FILE_MISSING_ACK_KEY); } catch { /* ignore */ }
+        setStorageInfo('Base locale sélectionnée.', false);
+        hideStartupModal();
+        await initializeData(true);
+        setFileDirty(false);
+        return true;
+      }
+    }
+
+    const createLocal = window.confirm("Voulez-vous copier la base Cloud vers un nouveau fichier local ?");
+    if (!createLocal) {
+      setStorageInfo('Aucun fichier local lié. La sélection sera redemandée uniquement lors d’une sauvegarde.', false);
+      return false;
+    }
+    const cloud = await fetchDatabaseFromCloudUrl(false);
+    if (!cloud) return false;
+    const copied = await askLocalDatabaseLocationFromCloud(cloud.parsed);
+    applyDatabaseObject(cloud.parsed);
+    setStorageMode('local');
+    setStorageInfo(copied ? 'Base Cloud copiée en local.' : 'Base Cloud chargée en mode local navigateur.', false);
+    hideStartupModal();
+    await initializeData(true);
+    setFileDirty(false);
+    return true;
+  }
+
+  async function switchStorageMode() {
+    const toggle = document.getElementById('cloudLocalSwitchToggle');
+    const nextMode = toggle && toggle.checked ? 'cloud' : 'local';
+    const previousMode = storageMode;
+    try {
+      if (nextMode === 'cloud') {
+        await loadDatabaseFromUrl();
+        return;
+      }
+      setStorageMode('local');
+      const loaded = await loadLocalDatabaseOrAsk();
+      if (!loaded) setStorageMode('cloud');
+    } catch (error) {
+      console.error(error);
+      setStorageInfo(nextMode === 'cloud' ? 'Chargement Cloud impossible.' : 'Chargement local impossible.', true);
+      setStorageMode(previousMode);
+    }
+  }
+
   async function readDatabaseFromHandle(handle) {
     const file = await handle.getFile();
     const parsed = safeJsonParse(await file.text(), null);
@@ -874,24 +1067,13 @@
 
   async function loadDatabaseFromUrl() {
     try {
-      const suggested = (() => {
-        try { return localStorage.getItem('krav_notes_db_url') || ''; } catch { return ''; }
-      })();
-      const next = window.prompt('URL du fichier JSON (GitHub Pages) :', suggested);
-      if (!next || !next.trim()) return;
-      const url = next.trim();
-      try { localStorage.setItem('krav_notes_db_url', url); } catch { /* ignore */ }
-
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`http_${response.status}`);
-      const text = await response.text();
-      const parsed = safeJsonParse(text, null);
-      if (!parsed) throw new Error('invalid_json');
-
-      applyDatabaseObject(parsed);
+      const cloud = await fetchDatabaseFromCloudUrl(true);
+      if (!cloud) return;
+      applyDatabaseObject(cloud.parsed);
       dbFileHandle = null;
-      currentDbName = url;
-      setCurrentFileLabel(url);
+      currentDbName = cloud.url;
+      setCurrentFileLabel(cloud.url);
+      setStorageMode('cloud');
       setStorageInfo('Base JSON chargée depuis l\'URL.', false);
       updateDatabasePreview();
       hideStartupModal();
@@ -904,14 +1086,7 @@
   }
 
   async function tryLoadDatabaseFromUrlOnStartup() {
-    const candidates = [];
-    try {
-      const stored = localStorage.getItem('krav_notes_db_url');
-      if (stored && stored.trim()) candidates.push(stored.trim());
-    } catch { /* ignore */ }
-
-    candidates.push('krav-notes-db.json');
-    candidates.push('krav-note-de.json');
+    const candidates = [getDefaultCloudUrl()];
 
     for (const url of candidates) {
       try {
@@ -924,6 +1099,7 @@
         dbFileHandle = null;
         currentDbName = url;
         setCurrentFileLabel(url);
+        setStorageMode('cloud');
         setStorageInfo('Base JSON chargée automatiquement.', false);
         updateDatabasePreview();
         hideStartupModal();
@@ -1157,6 +1333,7 @@
         applyDatabaseObject(parsed);
         currentDbName = dbFileHandle.name || '';
         setCurrentFileLabel(currentDbName || 'Base chargée');
+        setStorageMode('local');
         setStorageInfo('Base JSON ouverte.', false);
         updateDatabasePreview();
         hideStartupModal();
@@ -1175,9 +1352,15 @@
   async function saveDatabase() {
     try {
       syncCurrentTechniqueIntoDatabase(false);
+      const hasLocalHandle = await ensureLocalDatabaseHandleForSave();
+      if (!hasLocalHandle) {
+        await saveDatabaseAs(true);
+        return;
+      }
       if (dbFileHandle) {
         await writeDatabaseToHandle(dbFileHandle);
         persistDatabaseLocalFallback();
+        setStorageMode('local');
         setCurrentFileLabel(currentDbName || dbFileHandle.name || 'Base sauvegardée');
         setStorageInfo('Base sauvegardée.', false);
         updateDatabasePreview();
@@ -1202,6 +1385,7 @@
         currentDbName = dbFileHandle.name || currentDbName;
         await writeDatabaseToHandle(dbFileHandle);
         persistDatabaseLocalFallback();
+        setStorageMode('local');
         setCurrentFileLabel(currentDbName || 'Base sauvegardée');
         setStorageInfo('Base sauvegardée sous.', false);
         updateDatabasePreview();
@@ -2399,6 +2583,9 @@
   const expertModeToggle = document.getElementById('expertModeToggle');
   if (expertModeToggle) expertModeToggle.addEventListener('change', () => applyExpertMode(expertModeToggle.checked));
 
+  const cloudLocalSwitchToggle = document.getElementById('cloudLocalSwitchToggle');
+  if (cloudLocalSwitchToggle) cloudLocalSwitchToggle.addEventListener('change', switchStorageMode);
+
   const addBeltBtn = document.getElementById('addBeltBtn');
   if (addBeltBtn) addBeltBtn.addEventListener('click', async () => {
     const input = document.getElementById('newBeltInput');
@@ -2430,32 +2617,24 @@
     loadHoverComments();
     loadManualActions();
     loadExpertMode();
-    dbFileHandle = await loadDbFileHandle();
-    if (dbFileHandle && dbFileHandle.queryPermission) {
+    loadStorageMode();
+    let wasAutoLoaded = false;
+
+    if (storageMode === 'cloud') {
+      const loaded = await tryLoadDatabaseFromUrlOnStartup();
+      if (loaded) wasAutoLoaded = true;
+    } else {
       try {
-        const permission = await dbFileHandle.queryPermission({ mode: 'readwrite' });
-        if (permission !== 'granted') dbFileHandle = null;
-      } catch {
-        dbFileHandle = null;
-      }
-    }
-    if (dbFileHandle) {
-      try {
-        const parsed = await readDatabaseFromHandle(dbFileHandle);
-        applyDatabaseObject(parsed);
-        currentDbName = dbFileHandle.name || '';
-        setCurrentFileLabel(currentDbName || 'Base liée');
+        const loaded = await loadLocalDatabaseOrAsk();
+        if (loaded) wasAutoLoaded = true;
       } catch (error) {
         console.error(error);
         dbFileHandle = null;
       }
-    }
-
-    let wasAutoLoaded = false;
-
-    if (!dbFileHandle) {
-      const loaded = await tryLoadDatabaseFromUrlOnStartup();
-      if (loaded) wasAutoLoaded = true;
+      if (!wasAutoLoaded && !dbFileHandle) {
+        const loaded = await tryLoadDatabaseFromUrlOnStartup();
+        if (loaded) wasAutoLoaded = true;
+      }
     }
 
     if (!wasAutoLoaded) await initializeData(true);
