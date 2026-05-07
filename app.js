@@ -4,6 +4,7 @@
   const LANGUAGE_STORAGE_KEY = 'krav_notes_language_v1';
   const HOVER_COMMENTS_STORAGE_KEY = 'krav_notes_hover_comments_v1';
   const MANUAL_ACTIONS_STORAGE_KEY = 'krav_manual_actions';
+  const EXPERT_MODE_STORAGE_KEY = 'krav_expert_mode_v1';
   const DEFAULT_DB_FILENAME = 'krav-notes-db.json';
   const HANDLE_DB_NAME = 'self_defense_fs_db';
   const HANDLE_STORE_NAME = 'handles';
@@ -48,6 +49,7 @@
   let isFileDirty = false;
   let hoverCommentsEnabled = true;
   let manualActionsEnabled = true;
+  let expertModeEnabled = false;
   let belts = ['Blanche', 'Jaune', 'Orange', 'Verte', 'Bleue', 'Marron', 'Noire'];
   let beltFilterValue = '';
   let pendingMerge = null;
@@ -63,6 +65,7 @@
       btn_open_db: 'Ouvrir la base JSON',
       btn_load_db_url: 'Charger depuis GitHub',
       btn_merge_db: 'Fusionner une base JSON',
+      expert_mode: 'Mode expert',
       btn_save: 'Sauvegarder',
       btn_save_as: 'Sauvegarder sous',
       nav_techniques: 'Techniques',
@@ -97,8 +100,8 @@
       steps: 'Étapes',
       btn_add_step: 'Ajouter une étape',
       btn_duplicate_last: 'Dupliquer la dernière',
-      btn_table_view: 'Vue tableau',
-      btn_gantt_view: 'Vue gantt',
+      btn_table_view: 'Vue Modification',
+      btn_gantt_view: 'Vue Lecture',
       btn_mobile_steps: 'Vue mobile étapes',
       btn_mobile_gantt: 'Vue mobile gantt',
       hint_right_click: 'Clic droit sur une case pour afficher ou masquer le commentaire libre.',
@@ -148,7 +151,7 @@
         '<h3>Étapes / tableau</h3>' +
         '<p><strong>Ajouter une étape</strong> : ajoute une ligne.</p>' +
         '<p><strong>Dupliquer la dernière</strong> : duplique la dernière ligne.</p>' +
-        '<p><strong>Vue tableau / vue gantt</strong> : change l\'affichage. En mobile, utilise les boutons dédiés.</p>' +
+        '<p><strong>Vue Modification / Vue Lecture</strong> : change l\'affichage. En mobile, utilise les boutons dédiés.</p>' +
         '<p><strong>Commentaires au survol</strong> : active/désactive l\'affichage automatique des commentaires libres au survol.</p>' +
         '<p><strong>Clic droit</strong> sur une case : affiche/masque le commentaire inline.</p>' +
         '<h3>Gestion des actions</h3>' +
@@ -178,6 +181,7 @@
       btn_open_db: 'Open JSON database',
       btn_load_db_url: 'Load from URL',
       btn_merge_db: 'Merge JSON database',
+      expert_mode: 'Expert mode',
       btn_save: 'Save',
       btn_save_as: 'Save as',
       nav_techniques: 'Techniques',
@@ -212,8 +216,8 @@
       steps: 'Steps',
       btn_add_step: 'Add a step',
       btn_duplicate_last: 'Duplicate last',
-      btn_table_view: 'Table view',
-      btn_gantt_view: 'Gantt view',
+      btn_table_view: 'Edit view',
+      btn_gantt_view: 'Read view',
       btn_mobile_steps: 'Mobile steps view',
       btn_mobile_gantt: 'Mobile gantt view',
       hint_right_click: 'Right click a cell to show/hide the inline comment.',
@@ -263,7 +267,7 @@
         '<h3>Steps / table</h3>' +
         '<p><strong>Add a step</strong>: adds a row.</p>' +
         '<p><strong>Duplicate last</strong>: duplicates the last row.</p>' +
-        '<p><strong>Table view / Gantt view</strong>: switches the display. On mobile, use the dedicated buttons.</p>' +
+        '<p><strong>Edit view / Read view</strong>: switches the display. On mobile, use the dedicated buttons.</p>' +
         '<p><strong>Comments on hover</strong>: enables/disables automatic display of free comments on hover.</p>' +
         '<p><strong>Right click</strong> on a cell: shows/hides the inline comment.</p>' +
         '<h3>Action management</h3>' +
@@ -293,6 +297,7 @@
       btn_open_db: 'JSON-Datenbank öffnen',
       btn_load_db_url: 'Von URL laden',
       btn_merge_db: 'JSON-Datenbank zusammenführen',
+      expert_mode: 'Expertenmodus',
       btn_save: 'Speichern',
       btn_save_as: 'Speichern unter',
       nav_techniques: 'Techniken',
@@ -327,8 +332,8 @@
       steps: 'Schritte',
       btn_add_step: 'Schritt hinzufügen',
       btn_duplicate_last: 'Letzten duplizieren',
-      btn_table_view: 'Tabellenansicht',
-      btn_gantt_view: 'Gantt-Ansicht',
+      btn_table_view: 'Bearbeitungsansicht',
+      btn_gantt_view: 'Leseansicht',
       btn_mobile_steps: 'Mobile Schrittansicht',
       btn_mobile_gantt: 'Mobile Gantt-Ansicht',
       hint_right_click: 'Rechtsklick auf eine Zelle, um den Kommentar ein-/auszublenden.',
@@ -378,7 +383,7 @@
         '<h3>Schritte / Tabelle</h3>' +
         '<p><strong>Schritt hinzufügen</strong>: fügt eine Zeile hinzu.</p>' +
         '<p><strong>Letzten duplizieren</strong>: dupliziert die letzte Zeile.</p>' +
-        '<p><strong>Tabellenansicht / Gantt-Ansicht</strong>: wechselt die Darstellung. Auf Mobilgeräten die eigenen Buttons nutzen.</p>' +
+        '<p><strong>Bearbeitungsansicht / Leseansicht</strong>: wechselt die Darstellung. Auf Mobilgeräten die eigenen Buttons nutzen.</p>' +
         '<p><strong>Kommentare beim Überfahren</strong>: aktiviert/deaktiviert die automatische Anzeige der freien Kommentare beim Überfahren.</p>' +
         '<p><strong>Rechtsklick</strong> auf eine Zelle: zeigt/versteckt den Inline-Kommentar.</p>' +
         '<h3>Aktionsverwaltung</h3>' +
@@ -519,6 +524,7 @@
         language: currentLanguage,
         hoverComments: hoverCommentsEnabled,
         manualActions: manualActionsEnabled,
+        expertMode: expertModeEnabled,
         belts
       }
     };
@@ -554,6 +560,7 @@
     if (safe.settings && safe.settings.language) applyLanguage(safe.settings.language);
     if (safe.settings && typeof safe.settings.hoverComments === 'boolean') applyHoverComments(safe.settings.hoverComments);
     if (safe.settings && typeof safe.settings.manualActions === 'boolean') applyManualActions(safe.settings.manualActions);
+    if (safe.settings && typeof safe.settings.expertMode === 'boolean') applyExpertMode(safe.settings.expertMode);
     if (safe.settings && Array.isArray(safe.settings.belts)) applyBelts(safe.settings.belts);
 
     try {
@@ -614,6 +621,15 @@
     if (toggle) toggle.checked = manualActionsEnabled;
     document.body.classList.toggle('no-manual-actions', !manualActionsEnabled);
     try { localStorage.setItem(MANUAL_ACTIONS_STORAGE_KEY, manualActionsEnabled ? '1' : '0'); } catch { /* ignore */ }
+    updateDatabasePreview();
+  }
+
+  function applyExpertMode(enabled) {
+    expertModeEnabled = !!enabled;
+    const toggle = document.getElementById('expertModeToggle');
+    if (toggle) toggle.checked = expertModeEnabled;
+    document.body.classList.toggle('expert-mode', expertModeEnabled);
+    try { localStorage.setItem(EXPERT_MODE_STORAGE_KEY, expertModeEnabled ? '1' : '0'); } catch { /* ignore */ }
     updateDatabasePreview();
   }
 
@@ -716,6 +732,17 @@
       return;
     }
     applyManualActions(stored === '1');
+  }
+
+  function loadExpertMode() {
+    const stored = (() => {
+      try { return localStorage.getItem(EXPERT_MODE_STORAGE_KEY); } catch { return null; }
+    })();
+    if (stored === null) {
+      applyExpertMode(false);
+      return;
+    }
+    applyExpertMode(stored === '1');
   }
 
   function setFileDirty(next) {
@@ -2334,6 +2361,9 @@
   const manualActionsToggle = document.getElementById('manualActionsToggle');
   if (manualActionsToggle) manualActionsToggle.addEventListener('change', () => applyManualActions(manualActionsToggle.checked));
 
+  const expertModeToggle = document.getElementById('expertModeToggle');
+  if (expertModeToggle) expertModeToggle.addEventListener('change', () => applyExpertMode(expertModeToggle.checked));
+
   const addBeltBtn = document.getElementById('addBeltBtn');
   if (addBeltBtn) addBeltBtn.addEventListener('click', async () => {
     const input = document.getElementById('newBeltInput');
@@ -2364,6 +2394,7 @@
     loadLanguage();
     loadHoverComments();
     loadManualActions();
+    loadExpertMode();
     dbFileHandle = await loadDbFileHandle();
     if (dbFileHandle && dbFileHandle.queryPermission) {
       try {

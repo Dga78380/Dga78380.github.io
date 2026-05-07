@@ -169,6 +169,17 @@ button, input, select, textarea { font: inherit; }
   gap: 10px;
 }
 
+body:not(.expert-mode) .expert-only {
+  display: none;
+}
+
+.expert-toggle-row {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
 .app-shell {
   width: min(1800px, calc(100% - 24px));
   margin: 18px auto 32px;

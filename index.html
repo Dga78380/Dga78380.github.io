@@ -26,10 +26,14 @@
         <p data-i18n="app_subtitle">Notation de techniques de self-défense avec base JSON unique.</p>
       </div>
       <div class="header-actions">
-        <button class="secondary" id="openDatabaseBtn" type="button" data-i18n="btn_open_db">Ouvrir la base JSON</button>
+        <label class="checkbox-row expert-toggle-row" for="expertModeToggle">
+          <input id="expertModeToggle" type="checkbox" />
+          <span data-i18n="expert_mode">Mode expert</span>
+        </label>
+        <button class="secondary expert-only" id="openDatabaseBtn" type="button" data-i18n="btn_open_db">Ouvrir la base JSON</button>
         <input id="openDatabaseFile" type="file" accept="application/json,.json" hidden />
-        <button class="secondary" id="loadDatabaseUrlBtn" type="button" data-i18n="btn_load_db_url">Charger depuis GitHub</button>
-        <button class="secondary" id="mergeDatabaseBtn" type="button" data-i18n="btn_merge_db">Fusionner une base JSON</button>
+        <button class="secondary expert-only" id="loadDatabaseUrlBtn" type="button" data-i18n="btn_load_db_url">Charger depuis GitHub</button>
+        <button class="secondary expert-only" id="mergeDatabaseBtn" type="button" data-i18n="btn_merge_db">Fusionner une base JSON</button>
         <input id="mergeDatabaseFile" type="file" accept="application/json,.json" hidden />
         <button class="primary" id="saveDatabaseBtn" type="button" data-i18n="btn_save">Sauvegarder</button>
         <button class="secondary" id="saveAsDatabaseBtn" type="button" data-i18n="btn_save_as">Sauvegarder sous</button>
@@ -116,8 +120,8 @@
           <div class="card">
             <h2 data-i18n="steps">Étapes</h2>
             <div class="toolbar-row compact-gap">
-              <button class="secondary" id="tableViewBtn" type="button" data-i18n="btn_table_view">Vue tableau</button>
-              <button class="secondary" id="ganttViewBtn" type="button" data-i18n="btn_gantt_view">Vue gantt</button>
+              <button class="secondary" id="tableViewBtn" type="button" data-i18n="btn_table_view">Vue Modification</button>
+              <button class="secondary" id="ganttViewBtn" type="button" data-i18n="btn_gantt_view">Vue Lecture</button>
               <label class="checkbox-row" for="hoverCommentsToggle">
                 <input id="hoverCommentsToggle" type="checkbox" />
                 <span data-i18n="hover_comments_toggle">Commentaires au survol</span>
