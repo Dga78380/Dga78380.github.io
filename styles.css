@@ -192,6 +192,8 @@ body:not(.expert-mode) .expert-only {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
+  color: inherit;
+  font: inherit;
 }
 
 .cloud-local-switch input {

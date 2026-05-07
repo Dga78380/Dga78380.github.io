@@ -872,6 +872,7 @@
       if (wrapper) {
         wrapper.classList.toggle('mode-local', storageMode === 'local');
         wrapper.classList.toggle('mode-cloud', storageMode === 'cloud');
+        wrapper.setAttribute('aria-pressed', storageMode === 'cloud' ? 'true' : 'false');
       }
     }
     try { localStorage.setItem(STORAGE_MODE_KEY, storageMode); } catch { /* ignore */ }
@@ -1029,8 +1030,9 @@
 
   async function switchStorageMode() {
     const toggle = document.getElementById('cloudLocalSwitchToggle');
-    const nextMode = toggle && toggle.checked ? 'cloud' : 'local';
+    const nextMode = storageMode === 'cloud' ? 'local' : 'cloud';
     const previousMode = storageMode;
+    if (toggle) toggle.checked = nextMode === 'cloud';
     try {
       if (nextMode === 'cloud') {
         const loaded = await loadDatabaseFromCloudFile();
@@ -2613,8 +2615,8 @@
   const expertModeToggle = document.getElementById('expertModeToggle');
   if (expertModeToggle) expertModeToggle.addEventListener('change', () => applyExpertMode(expertModeToggle.checked));
 
-  const cloudLocalSwitchToggle = document.getElementById('cloudLocalSwitchToggle');
-  if (cloudLocalSwitchToggle) cloudLocalSwitchToggle.addEventListener('change', switchStorageMode);
+  const cloudLocalSwitch = document.getElementById('cloudLocalSwitch');
+  if (cloudLocalSwitch) cloudLocalSwitch.addEventListener('click', switchStorageMode);
 
   const addBeltBtn = document.getElementById('addBeltBtn');
   if (addBeltBtn) addBeltBtn.addEventListener('click', async () => {

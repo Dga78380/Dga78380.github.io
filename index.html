@@ -30,12 +30,12 @@
           <input id="expertModeToggle" type="checkbox" />
           <span data-i18n="expert_mode">Mode expert</span>
         </label>
-        <label class="cloud-local-switch">
+        <button class="cloud-local-switch" id="cloudLocalSwitch" type="button" aria-pressed="false">
           <span class="cloud-local-switch-label cloud-local-switch-label-local" data-i18n="storage_local">Local</span>
           <input id="cloudLocalSwitchToggle" type="checkbox" />
           <span class="cloud-local-switch-slider"></span>
           <span class="cloud-local-switch-label cloud-local-switch-label-cloud" data-i18n="storage_cloud">Cloud</span>
-        </label>
+        </button>
         <button class="secondary expert-only" id="openDatabaseBtn" type="button" data-i18n="btn_open_db">Ouvrir la base JSON</button>
         <input id="openDatabaseFile" type="file" accept="application/json,.json" hidden />
         <button class="secondary expert-only" id="loadDatabaseUrlBtn" type="button" data-i18n="btn_load_db_url">Charger depuis GitHub</button>
