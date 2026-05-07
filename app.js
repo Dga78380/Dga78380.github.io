@@ -102,8 +102,6 @@
       btn_duplicate_last: 'Dupliquer la dernière',
       btn_table_view: 'Vue Modification',
       btn_gantt_view: 'Vue Lecture',
-      btn_mobile_switch_to_read: 'Passer en lecture',
-      btn_mobile_switch_to_edit: 'Passer en modification',
       hint_right_click: 'Clic droit sur une case pour afficher ou masquer le commentaire libre.',
       hover_comments_toggle: 'Commentaires au survol',
       manual_actions_toggle: 'Ajout action',
@@ -218,8 +216,6 @@
       btn_duplicate_last: 'Duplicate last',
       btn_table_view: 'Edit view',
       btn_gantt_view: 'Read view',
-      btn_mobile_switch_to_read: 'Switch to read',
-      btn_mobile_switch_to_edit: 'Switch to edit',
       hint_right_click: 'Right click a cell to show/hide the inline comment.',
       hover_comments_toggle: 'Comments on hover',
       manual_actions_toggle: 'Add action',
@@ -334,8 +330,6 @@
       btn_duplicate_last: 'Letzten duplizieren',
       btn_table_view: 'Bearbeitungsansicht',
       btn_gantt_view: 'Leseansicht',
-      btn_mobile_switch_to_read: 'Zur Leseansicht wechseln',
-      btn_mobile_switch_to_edit: 'Zur Bearbeitung wechseln',
       hint_right_click: 'Rechtsklick auf eine Zelle, um den Kommentar ein-/auszublenden.',
       hover_comments_toggle: 'Kommentare beim Überfahren',
       manual_actions_toggle: 'Aktion hinzufügen',
@@ -798,15 +792,13 @@
     refreshCollapseIndicators();
     try { localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage); } catch { /* ignore */ }
     updateDatabasePreview();
-    updateMobileViewSwitchLabel();
+    syncMobileViewSwitch();
   }
 
-  function updateMobileViewSwitchLabel() {
-    const btn = $('mobileViewSwitchBtn');
-    if (!btn || !mobileStepsWrap || !mobileGanttWrap) return;
-    const key = mobileGanttWrap.classList.contains('active') ? 'btn_mobile_switch_to_edit' : 'btn_mobile_switch_to_read';
-    btn.dataset.i18n = key;
-    btn.textContent = (TRANSLATIONS[currentLanguage] && TRANSLATIONS[currentLanguage][key]) || TRANSLATIONS.fr[key] || '';
+  function syncMobileViewSwitch() {
+    const toggle = $('mobileViewSwitchToggle');
+    if (!toggle || !mobileGanttWrap) return;
+    toggle.checked = mobileGanttWrap.classList.contains('active');
   }
 
   function showMobileEditView() {
@@ -814,7 +806,7 @@
     renderMobileView();
     mobileStepsWrap.classList.add('active');
     mobileGanttWrap.classList.remove('active');
-    updateMobileViewSwitchLabel();
+    syncMobileViewSwitch();
   }
 
   function showMobileReadView() {
@@ -822,15 +814,16 @@
     renderMobileGanttView();
     mobileGanttWrap.classList.add('active');
     mobileStepsWrap.classList.remove('active');
-    updateMobileViewSwitchLabel();
+    syncMobileViewSwitch();
   }
 
   function switchMobileView() {
-    if (mobileGanttWrap && mobileGanttWrap.classList.contains('active')) {
-      showMobileEditView();
+    const toggle = $('mobileViewSwitchToggle');
+    if (toggle && toggle.checked) {
+      showMobileReadView();
       return;
     }
-    showMobileReadView();
+    showMobileEditView();
   }
 
   function loadLanguage() {
@@ -1842,12 +1835,12 @@
       if (tableWrap) tableWrap.classList.remove('active');
       if (ganttWrap) ganttWrap.classList.remove('active');
       if (mobileStepsWrap && mobileGanttWrap && !mobileStepsWrap.classList.contains('active') && !mobileGanttWrap.classList.contains('active')) mobileStepsWrap.classList.add('active');
-      updateMobileViewSwitchLabel();
+      syncMobileViewSwitch();
     } else {
       if (mobileStepsWrap) mobileStepsWrap.classList.remove('active');
       if (mobileGanttWrap) mobileGanttWrap.classList.remove('active');
       if (tableWrap && ganttWrap && !tableWrap.classList.contains('active') && !ganttWrap.classList.contains('active')) tableWrap.classList.add('active');
-      updateMobileViewSwitchLabel();
+      syncMobileViewSwitch();
     }
   }
 
@@ -2340,8 +2333,8 @@
   const ganttViewBtn = $('ganttViewBtn');
   if (ganttViewBtn && tableWrap && ganttWrap) ganttViewBtn.addEventListener('click', () => { renderGanttView(); ganttWrap.classList.add('active'); tableWrap.classList.remove('active'); });
 
-  const mobileViewSwitchBtn = $('mobileViewSwitchBtn');
-  if (mobileViewSwitchBtn && mobileStepsWrap && mobileGanttWrap) mobileViewSwitchBtn.addEventListener('click', switchMobileView);
+  const mobileViewSwitchToggle = $('mobileViewSwitchToggle');
+  if (mobileViewSwitchToggle && mobileStepsWrap && mobileGanttWrap) mobileViewSwitchToggle.addEventListener('change', switchMobileView);
 
   const memberSelect = $('memberSelect');
   if (memberSelect) memberSelect.addEventListener('change', () => { const id = memberSelect.value; const actionPartSelect = $('actionPartSelect'); if (actionPartSelect) actionPartSelect.value = id; refreshExistingActions(); });
