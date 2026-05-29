@@ -98,7 +98,10 @@
                 <div class="two-cols title-belt-row">
                   <div class="field">
                     <label for="titleInput" data-i18n="title">Titre</label>
-                    <input id="titleInput" type="text" placeholder="Défense sur saisie poignet + contre" data-i18n-placeholder="ph_title" />
+                    <div class="input-with-mic">
+                      <input id="titleInput" type="text" placeholder="Défense sur saisie poignet + contre" data-i18n-placeholder="ph_title" />
+                      <button type="button" class="mic-btn" data-dictate="titleInput" data-i18n-title="voice_dictate" title="Dicter" aria-label="Dicter"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                    </div>
                   </div>
                   <div class="field">
                     <label for="beltSelect" data-i18n="belt">Ceinture</label>
@@ -108,15 +111,24 @@
                 <div class="three-cols">
                   <div class="field">
                     <label for="initialStateInput" data-i18n="initial_state">État initial</label>
-                    <textarea id="initialStateInput" placeholder="Position de départ, distance, saisie..." data-i18n-placeholder="ph_initial_state"></textarea>
+                    <div class="input-with-mic">
+                      <textarea id="initialStateInput" placeholder="Position de départ, distance, saisie..." data-i18n-placeholder="ph_initial_state"></textarea>
+                      <button type="button" class="mic-btn" data-dictate="initialStateInput" data-i18n-title="voice_dictate" title="Dicter" aria-label="Dicter"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                    </div>
                   </div>
                   <div class="field">
                     <label for="finalStateInput" data-i18n="final_state">État final</label>
-                    <textarea id="finalStateInput" placeholder="Position finale, contrôle, fuite..." data-i18n-placeholder="ph_final_state"></textarea>
+                    <div class="input-with-mic">
+                      <textarea id="finalStateInput" placeholder="Position finale, contrôle, fuite..." data-i18n-placeholder="ph_final_state"></textarea>
+                      <button type="button" class="mic-btn" data-dictate="finalStateInput" data-i18n-title="voice_dictate" title="Dicter" aria-label="Dicter"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                    </div>
                   </div>
                   <div class="field">
                     <label for="attentionPointsInput" data-i18n="attention_points">Points d'attention</label>
-                    <textarea id="attentionPointsInput" placeholder="Sécurité, angle, respiration..." data-i18n-placeholder="ph_attention_points"></textarea>
+                    <div class="input-with-mic">
+                      <textarea id="attentionPointsInput" placeholder="Sécurité, angle, respiration..." data-i18n-placeholder="ph_attention_points"></textarea>
+                      <button type="button" class="mic-btn" data-dictate="attentionPointsInput" data-i18n-title="voice_dictate" title="Dicter" aria-label="Dicter"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -128,6 +140,8 @@
             <div class="toolbar-row compact-gap">
               <button class="secondary" id="tableViewBtn" type="button" data-i18n="btn_table_view">Vue Modification</button>
               <button class="secondary" id="ganttViewBtn" type="button" data-i18n="btn_gantt_view">Vue Lecture</button>
+              <button class="secondary voice-btn" id="voiceCommandBtn" type="button" data-i18n="voice_command" hidden>Dictée mouvement</button>
+              <button class="secondary voice-btn" id="readAloudBtn" type="button" data-i18n="voice_read" hidden>Lire</button>
               <label class="checkbox-row" for="hoverCommentsToggle">
                 <input id="hoverCommentsToggle" type="checkbox" />
                 <span data-i18n="hover_comments_toggle">Commentaires au survol</span>
@@ -312,6 +326,18 @@
       </section>
     </section>
   </main>
+
+  <div id="voicePanel" class="voice-panel" role="status" aria-live="polite" hidden>
+    <div class="voice-panel-head">
+      <span class="voice-dot"></span>
+      <strong data-i18n="voice_listening">Écoute en cours…</strong>
+      <button type="button" class="secondary" id="voiceStopBtn" data-i18n="voice_stop">Arrêter</button>
+    </div>
+    <p class="voice-step-label" id="voiceStepLabel"></p>
+    <p class="voice-transcript" id="voiceTranscript"></p>
+    <p class="voice-feedback" id="voiceFeedback"></p>
+    <p class="hint" data-i18n="voice_help">Dites « membre puis action », ou « nouvelle étape ».</p>
+  </div>
 
   <script src="app.bundle.js"></script>
 </body>

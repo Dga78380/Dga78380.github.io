@@ -123,6 +123,18 @@
       full_database: "Base JSON compl\xE8te",
       btn_restore_backup: "Restaurer la derni\xE8re sauvegarde",
       backup_hint: "Des sauvegardes automatiques de la base sont conserv\xE9es dans le navigateur (IndexedDB).",
+      voice_dictate: "Dicter",
+      voice_command: "Dict\xE9e mouvement",
+      voice_read: "Lire",
+      voice_listening: "\xC9coute en cours\u2026",
+      voice_stop: "Arr\xEAter",
+      voice_help: "Dites \xAB membre puis action \xBB, ou \xAB nouvelle \xE9tape \xBB.",
+      voice_step: "\xC9tape",
+      voice_new_step: "Nouvelle \xE9tape",
+      voice_no_member: "Membre non reconnu.",
+      voice_no_action: "action non reconnue.",
+      voice_nothing: "Rien \xE0 lire pour le moment.",
+      voice_denied: "Acc\xE8s au micro refus\xE9.",
       documentation: "Documentation",
       documentation_body: `<h3>Principe g\xE9n\xE9ral</h3><p>L'application fonctionne avec une base JSON unique (fichier) et un mode local navigateur.</p><h3>Utilisation sur smartphone hors-ligne (sans r\xE9seau)</h3><p>Sur Android, ouvrir <em>index.html</em> depuis Google Drive (aper\xE7u) ne charge souvent pas <em>styles.css</em> / <em>app.js</em> et les boutons ne fonctionnent pas.</p><p>Pour un usage hors-ligne fiable, ouvre le dossier via un <strong>serveur HTTP local sur le t\xE9l\xE9phone</strong> (ex: une appli "Simple HTTP Server" / "Web Server") ou un \xE9diteur (ex: Acode/Spck) qui fournit une URL <code>http://localhost</code>. Ensuite, ouvre cette URL dans Chrome.</p><h3>Ouverture / sauvegarde de la base</h3><p><strong>Ouvrir la base JSON</strong> : s\xE9lectionne un fichier .json (File System Access API si dispo). La base devient le fichier courant.</p><p><strong>Sauvegarder</strong> : \xE9crit toutes les donn\xE9es (techniques, membres, actions, r\xE9glages) dans le fichier courant. Le bouton devient rouge lorsqu'il existe des modifications non enregistr\xE9es.</p><p><strong>Sauvegarder sous</strong> : enregistre dans un nouveau fichier (ou t\xE9l\xE9charge si l'API n'est pas dispo).</p><h3>Page Techniques</h3><p><strong>Nouvelle</strong> : d\xE9marre une technique vide (ne remplace pas une technique existante).</p><p><strong>Sauvegarder (navigateur)</strong> : enregistre uniquement la technique courante dans le stockage navigateur (utile pour travailler sans toucher au fichier complet).</p><p><strong>Supprimer</strong> : supprime la technique s\xE9lectionn\xE9e du stockage navigateur.</p><p><strong>Exporter JSON</strong> : exporte la technique courante en fichier .json.</p><p><strong>Importer JSON</strong> : importe une technique depuis un fichier .json dans l'\xE9diteur.</p><h3>\xC9tapes / tableau</h3><p><strong>Ajouter une \xE9tape</strong> : ajoute une ligne.</p><p><strong>Dupliquer la derni\xE8re</strong> : duplique la derni\xE8re ligne.</p><p><strong>Vue Modification / Vue Lecture</strong> : change l'affichage. En mobile, utilise les boutons d\xE9di\xE9s.</p><p><strong>Commentaires au survol</strong> : active/d\xE9sactive l'affichage automatique des commentaires libres au survol.</p><p><strong>Clic droit</strong> sur une case : affiche/masque le commentaire inline.</p><h3>Gestion des actions</h3><p>Permet d'ajouter / renommer des actions disponibles pour chaque membre (membres = parties du corps).</p><h3>Gestion des membres</h3><p>Permet de cr\xE9er / renommer / supprimer des membres. Les actions sont organis\xE9es par membre.</p><h3>R\xE9glages</h3><p><strong>Langue</strong> : change l'interface (FR/EN/DE).</p><p><strong>Th\xE8me</strong> : clair / sombre.</p><p><em>Note :</em> pense \xE0 sauvegarder la base (bouton en haut) pour enregistrer tes changements dans le fichier JSON.</p>`,
       show: "Afficher",
@@ -212,6 +224,18 @@
       full_database: "Full JSON database",
       btn_restore_backup: "Restore latest backup",
       backup_hint: "Automatic backups of the database are kept in the browser (IndexedDB).",
+      voice_dictate: "Dictate",
+      voice_command: "Voice input",
+      voice_read: "Read aloud",
+      voice_listening: "Listening\u2026",
+      voice_stop: "Stop",
+      voice_help: 'Say "member then action", or "new step".',
+      voice_step: "Step",
+      voice_new_step: "New step",
+      voice_no_member: "Member not recognized.",
+      voice_no_action: "action not recognized.",
+      voice_nothing: "Nothing to read yet.",
+      voice_denied: "Microphone access denied.",
       documentation: "Documentation",
       documentation_body: '<h3>General idea</h3><p>The app works with a single JSON database file and a local browser mode.</p><h3>Offline use on a phone (no network)</h3><p>On Android, opening <em>index.html</em> from Google Drive preview often fails to load <em>styles.css</em> / <em>app.js</em>, so buttons do not work.</p><p>For reliable offline usage, open the folder through a <strong>local HTTP server on the phone</strong> (e.g. a "Simple HTTP Server" / "Web Server" app) or an editor (e.g. Acode/Spck) that provides a <code>http://localhost</code> URL. Then open that URL in Chrome.</p><h3>Open / save the database</h3><p><strong>Open JSON database</strong>: pick a .json file (File System Access API when available). It becomes the current file.</p><p><strong>Save</strong>: writes all data (techniques, members, actions, settings) to the current file. The button turns red when there are unsaved changes.</p><p><strong>Save as</strong>: saves to a new file (or downloads if the API is not available).</p><h3>Techniques page</h3><p><strong>New</strong>: starts an empty technique (does not overwrite an existing one).</p><p><strong>Save (browser)</strong>: saves only the current technique to browser storage (useful to work without rewriting the full file).</p><p><strong>Delete</strong>: deletes the selected technique from browser storage.</p><p><strong>Export JSON</strong>: exports the current technique to a .json file.</p><p><strong>Import JSON</strong>: imports a technique from a .json file into the editor.</p><h3>Steps / table</h3><p><strong>Add a step</strong>: adds a row.</p><p><strong>Duplicate last</strong>: duplicates the last row.</p><p><strong>Edit view / Read view</strong>: switches the display. On mobile, use the dedicated buttons.</p><p><strong>Comments on hover</strong>: enables/disables automatic display of free comments on hover.</p><p><strong>Right click</strong> on a cell: shows/hides the inline comment.</p><h3>Action management</h3><p>Add / rename actions available for each member (members = body parts).</p><h3>Member management</h3><p>Create / rename / delete members. Actions are organized per member.</p><h3>Settings</h3><p><strong>Language</strong>: switches UI language (FR/EN/DE).</p><p><strong>Theme</strong>: light / dark.</p><p><em>Note:</em> remember to save the database (top button) to persist changes to the JSON file.</p>',
       show: "Show",
@@ -301,6 +325,18 @@
       full_database: "Vollst\xE4ndige JSON-Datenbank",
       btn_restore_backup: "Letzte Sicherung wiederherstellen",
       backup_hint: "Automatische Sicherungen der Datenbank werden im Browser gespeichert (IndexedDB).",
+      voice_dictate: "Diktieren",
+      voice_command: "Sprachbefehl",
+      voice_read: "Vorlesen",
+      voice_listening: "H\xF6re zu\u2026",
+      voice_stop: "Stopp",
+      voice_help: 'Sage "Glied dann Aktion" oder "neue Etappe".',
+      voice_step: "Schritt",
+      voice_new_step: "Neuer Schritt",
+      voice_no_member: "Glied nicht erkannt.",
+      voice_no_action: "Aktion nicht erkannt.",
+      voice_nothing: "Nichts zum Vorlesen.",
+      voice_denied: "Mikrofonzugriff verweigert.",
       documentation: "Dokumentation",
       documentation_body: '<h3>Grundprinzip</h3><p>Die App arbeitet mit einer einzigen JSON-Datenbankdatei sowie einem lokalen Browser-Modus.</p><h3>Offline-Nutzung am Smartphone (ohne Netzwerk)</h3><p>Auf Android l\xE4dt das \xD6ffnen von <em>index.html</em> in der Google-Drive-Vorschau oft <em>styles.css</em> / <em>app.js</em> nicht, dadurch funktionieren Buttons nicht.</p><p>F\xFCr eine zuverl\xE4ssige Offline-Nutzung \xF6ffne den Ordner \xFCber einen <strong>lokalen HTTP-Server auf dem Smartphone</strong> (z.B. App "Simple HTTP Server" / "Web Server") oder \xFCber einen Editor (z.B. Acode/Spck), der eine <code>http://localhost</code>-URL bereitstellt. \xD6ffne danach diese URL in Chrome.</p><h3>Datenbank \xF6ffnen / speichern</h3><p><strong>JSON-Datenbank \xF6ffnen</strong>: w\xE4hle eine .json-Datei (File System Access API, falls verf\xFCgbar). Sie wird zur aktuellen Datei.</p><p><strong>Speichern</strong>: schreibt alle Daten (Techniken, Mitglieder, Aktionen, Einstellungen) in die aktuelle Datei. Der Button wird rot, wenn \xC4nderungen noch nicht gespeichert sind.</p><p><strong>Speichern unter</strong>: speichert in eine neue Datei (oder l\xE4dt herunter, falls die API nicht verf\xFCgbar ist).</p><h3>Seite Techniken</h3><p><strong>Neu</strong>: startet eine leere Technik (\xFCberschreibt keine bestehende).</p><p><strong>Speichern (Browser)</strong>: speichert nur die aktuelle Technik im Browser-Speicher (praktisch ohne die ganze Datei zu schreiben).</p><p><strong>L\xF6schen</strong>: l\xF6scht die ausgew\xE4hlte Technik aus dem Browser-Speicher.</p><p><strong>JSON exportieren</strong>: exportiert die aktuelle Technik als .json.</p><p><strong>JSON importieren</strong>: importiert eine Technik aus einer .json-Datei in den Editor.</p><h3>Schritte / Tabelle</h3><p><strong>Schritt hinzuf\xFCgen</strong>: f\xFCgt eine Zeile hinzu.</p><p><strong>Letzten duplizieren</strong>: dupliziert die letzte Zeile.</p><p><strong>Bearbeitungsansicht / Leseansicht</strong>: wechselt die Darstellung. Auf Mobilger\xE4ten die eigenen Buttons nutzen.</p><p><strong>Kommentare beim \xDCberfahren</strong>: aktiviert/deaktiviert die automatische Anzeige der freien Kommentare beim \xDCberfahren.</p><p><strong>Rechtsklick</strong> auf eine Zelle: zeigt/versteckt den Inline-Kommentar.</p><h3>Aktionsverwaltung</h3><p>Aktionen pro Mitglied (Mitglieder = K\xF6rperteile) hinzuf\xFCgen / umbenennen.</p><h3>Mitgliederverwaltung</h3><p>Mitglieder erstellen / umbenennen / l\xF6schen. Aktionen sind pro Mitglied organisiert.</p><h3>Einstellungen</h3><p><strong>Sprache</strong>: UI-Sprache wechseln (FR/EN/DE).</p><p><strong>Design</strong>: hell / dunkel.</p><p><em>Hinweis:</em> Denk daran, die Datenbank (oben) zu speichern, um \xC4nderungen in der JSON-Datei zu sichern.</p>',
       show: "Anzeigen",
@@ -442,6 +478,109 @@
       errors.push('Le champ "settings" doit \xEAtre un objet.');
     }
     return { valid: errors.length === 0, errors };
+  }
+
+  // src/voice.js
+  var SpeechRecognitionImpl = typeof window !== "undefined" ? window.SpeechRecognition || window.webkitSpeechRecognition : void 0;
+  function isRecognitionSupported() {
+    return !!SpeechRecognitionImpl;
+  }
+  function isSynthesisSupported() {
+    return typeof window !== "undefined" && "speechSynthesis" in window;
+  }
+  function speechLangFor(code) {
+    switch (code) {
+      case "en":
+        return "en-US";
+      case "de":
+        return "de-DE";
+      default:
+        return "fr-FR";
+    }
+  }
+  function createRecognizer(options = {}) {
+    if (!SpeechRecognitionImpl) return null;
+    const recognition = new SpeechRecognitionImpl();
+    recognition.lang = options.lang || "fr-FR";
+    recognition.continuous = !!options.continuous;
+    recognition.interimResults = !!options.interimResults;
+    recognition.maxAlternatives = 1;
+    let stopped = false;
+    recognition.onresult = (event) => {
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        const result = event.results[i];
+        const transcript = result[0] ? result[0].transcript : "";
+        if (typeof options.onResult === "function") {
+          options.onResult({ transcript, isFinal: result.isFinal });
+        }
+      }
+    };
+    recognition.onerror = (event) => {
+      if (typeof options.onError === "function") options.onError(event.error || "error");
+    };
+    recognition.onend = () => {
+      if (options.continuous && !stopped) {
+        try {
+          recognition.start();
+          return;
+        } catch {
+        }
+      }
+      if (typeof options.onEnd === "function") options.onEnd();
+    };
+    return {
+      start() {
+        stopped = false;
+        try {
+          recognition.start();
+        } catch {
+        }
+      },
+      stop() {
+        stopped = true;
+        try {
+          recognition.stop();
+        } catch {
+        }
+      }
+    };
+  }
+  function speak(text, code = "fr") {
+    if (!isSynthesisSupported() || !text) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = speechLangFor(code);
+    utterance.rate = 0.95;
+    window.speechSynthesis.speak(utterance);
+  }
+  function cancelSpeech() {
+    if (isSynthesisSupported()) window.speechSynthesis.cancel();
+  }
+  function normalize(text) {
+    return String(text || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function similarity(a, b) {
+    if (!a || !b) return 0;
+    if (a === b) return 1;
+    if (a.includes(b) || b.includes(a)) return 0.85;
+    const tokensA = new Set(a.split(" "));
+    const tokensB = new Set(b.split(" "));
+    let common = 0;
+    tokensA.forEach((t) => {
+      if (tokensB.has(t)) common += 1;
+    });
+    const union = (/* @__PURE__ */ new Set([...tokensA, ...tokensB])).size;
+    return union ? common / union : 0;
+  }
+  function bestMatch(query, candidates, threshold = 0.34) {
+    const q = normalize(query);
+    if (!q || !Array.isArray(candidates)) return null;
+    let best = null;
+    candidates.forEach((candidate) => {
+      const score = similarity(q, normalize(candidate));
+      if (!best || score > best.score) best = { value: candidate, score };
+    });
+    return best && best.score >= threshold ? best : null;
   }
 
   // app.js
@@ -900,6 +1039,12 @@
         const key = el.getAttribute("data-i18n-placeholder");
         if (!key) return;
         el.setAttribute("placeholder", translate(key));
+      });
+      Array.from(document.querySelectorAll("[data-i18n-title]")).forEach((el) => {
+        const key = el.getAttribute("data-i18n-title");
+        if (!key) return;
+        el.setAttribute("title", translate(key));
+        el.setAttribute("aria-label", translate(key));
       });
     }
     function refreshCollapseIndicators() {
@@ -2950,6 +3095,215 @@
       if (!window.confirm("Restaurer la derni\xE8re sauvegarde automatique ? Les donn\xE9es non sauvegard\xE9es seront remplac\xE9es.")) return;
       await restoreLatestBackup();
     });
+    let activeFieldRecognizer = null;
+    let activeMicButton = null;
+    let commandRecognizer = null;
+    let voiceStepIndex = 0;
+    function setVoiceTranscript(text) {
+      const el = document.getElementById("voiceTranscript");
+      if (el) el.textContent = text || "";
+    }
+    function setVoiceFeedback(text) {
+      const el = document.getElementById("voiceFeedback");
+      if (el) el.textContent = text || "";
+    }
+    function updateVoiceStepLabel() {
+      const el = document.getElementById("voiceStepLabel");
+      if (el) el.textContent = `${translate("voice_step")} ${voiceStepIndex + 1}`;
+    }
+    function getVoiceRow() {
+      let rows = stepsBody.querySelectorAll("tr");
+      if (!rows.length) {
+        addStep();
+        rows = stepsBody.querySelectorAll("tr");
+      }
+      if (!Number.isFinite(voiceStepIndex) || voiceStepIndex < 0 || voiceStepIndex >= rows.length) {
+        voiceStepIndex = rows.length - 1;
+      }
+      return rows[voiceStepIndex];
+    }
+    function setRowAction(row, part, value) {
+      if (!row) return;
+      const select = row.querySelector(`select[data-part="${part}"]`);
+      if (!select) return;
+      if (!Array.from(select.options).some((o) => o.value === value)) {
+        const opt = document.createElement("option");
+        opt.value = value;
+        opt.textContent = value;
+        select.appendChild(opt);
+      }
+      select.value = value;
+      select.dispatchEvent(new Event("change"));
+    }
+    function matchMemberFromUtterance(norm) {
+      let best = null;
+      const consider = (m) => {
+        const label = normalize(m.label);
+        if (!label) return;
+        if (norm.startsWith(label) || norm.includes(label)) {
+          if (!best || label.length > normalize(best.label).length) best = m;
+        }
+      };
+      members.forEach(consider);
+      return best;
+    }
+    function applyVoiceCommand(transcript) {
+      const norm = normalize(transcript);
+      if (!norm) return;
+      if (/(nouvelle etape|etape suivante|new step|next step|neue stufe|nachste etappe)/.test(norm)) {
+        addStep();
+        voiceStepIndex = stepsBody.querySelectorAll("tr").length - 1;
+        refreshVisuals();
+        updateVoiceStepLabel();
+        setVoiceFeedback(`${translate("voice_new_step")} ${voiceStepIndex + 1}`);
+        return;
+      }
+      if (/(etape precedente|previous step|vorherige etappe)/.test(norm)) {
+        if (voiceStepIndex > 0) voiceStepIndex -= 1;
+        updateVoiceStepLabel();
+        setVoiceFeedback(updateVoiceStepLabelText());
+        return;
+      }
+      const member = matchMemberFromUtterance(norm);
+      if (!member) {
+        setVoiceFeedback(translate("voice_no_member"));
+        return;
+      }
+      const memberLabel = normalize(member.label);
+      const remainder = norm.startsWith(memberLabel) ? norm.slice(memberLabel.length).trim() : norm.replace(memberLabel, "").trim();
+      const candidates = actionSets[member.id] || ["Neutre"];
+      const match = bestMatch(remainder || norm, candidates);
+      if (!match) {
+        setVoiceFeedback(`${member.label} : ${translate("voice_no_action")}`);
+        return;
+      }
+      setRowAction(getVoiceRow(), member.id, match.value);
+      setVoiceFeedback(`${translate("voice_step")} ${voiceStepIndex + 1} \u2014 ${member.label} : ${match.value}`);
+    }
+    function updateVoiceStepLabelText() {
+      return `${translate("voice_step")} ${voiceStepIndex + 1}`;
+    }
+    function startCommandMode() {
+      if (!isRecognitionSupported()) return;
+      const rows = stepsBody.querySelectorAll("tr");
+      voiceStepIndex = Math.max(0, rows.length - 1);
+      const panel = document.getElementById("voicePanel");
+      const btn = document.getElementById("voiceCommandBtn");
+      if (panel) panel.hidden = false;
+      if (btn) btn.classList.add("listening");
+      setVoiceTranscript("");
+      setVoiceFeedback("");
+      updateVoiceStepLabel();
+      commandRecognizer = createRecognizer({
+        lang: speechLangFor(currentLanguage),
+        continuous: true,
+        interimResults: true,
+        onResult: ({ transcript, isFinal }) => {
+          setVoiceTranscript(transcript);
+          if (isFinal) {
+            applyVoiceCommand(transcript);
+            setVoiceTranscript("");
+          }
+        },
+        onError: (err) => {
+          if (err === "not-allowed" || err === "service-not-allowed") {
+            setVoiceFeedback(translate("voice_denied"));
+            stopCommandMode();
+          }
+        }
+      });
+      commandRecognizer.start();
+    }
+    function stopCommandMode() {
+      if (commandRecognizer) commandRecognizer.stop();
+      commandRecognizer = null;
+      const panel = document.getElementById("voicePanel");
+      const btn = document.getElementById("voiceCommandBtn");
+      if (panel) panel.hidden = true;
+      if (btn) btn.classList.remove("listening");
+    }
+    function toggleFieldDictation(targetId, btn) {
+      if (activeFieldRecognizer) {
+        activeFieldRecognizer.stop();
+        return;
+      }
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      activeMicButton = btn;
+      btn.classList.add("listening");
+      activeFieldRecognizer = createRecognizer({
+        lang: speechLangFor(currentLanguage),
+        continuous: false,
+        interimResults: false,
+        onResult: ({ transcript, isFinal }) => {
+          if (!isFinal) return;
+          const sep = el.value && !/\s$/.test(el.value) ? " " : "";
+          el.value = (el.value + sep + transcript).trim();
+          el.dispatchEvent(new Event("input"));
+        },
+        onError: () => {
+        },
+        onEnd: () => {
+          if (activeMicButton) activeMicButton.classList.remove("listening");
+          activeMicButton = null;
+          activeFieldRecognizer = null;
+        }
+      });
+      activeFieldRecognizer.start();
+    }
+    function readTechniqueAloud() {
+      const fragments = [];
+      const titleEl = document.getElementById("titleInput");
+      const title = titleEl ? titleEl.value.trim() : "";
+      if (title) fragments.push(`${translate("title")} : ${title}`);
+      const rows = Array.from(stepsBody.querySelectorAll("tr"));
+      rows.forEach((row, idx) => {
+        const parts = [];
+        members.forEach((m) => {
+          const select = row.querySelector(`select[data-part="${m.id}"]`);
+          const value = select ? select.value : "Neutre";
+          if (value && normalize(value) !== "neutre") parts.push(`${m.label}, ${value}`);
+        });
+        const stepComment = row.querySelector('input[data-part="commentaire"]');
+        if (stepComment && stepComment.value.trim()) parts.push(stepComment.value.trim());
+        if (parts.length) fragments.push(`${translate("voice_step")} ${idx + 1}. ${parts.join(". ")}`);
+      });
+      if (!fragments.length) {
+        setStorageInfo(translate("voice_nothing"), true);
+        return;
+      }
+      speak(fragments.join(". "), currentLanguage);
+    }
+    function setupVoiceFeatures() {
+      const recSupported = isRecognitionSupported();
+      const synthSupported = isSynthesisSupported();
+      Array.from(document.querySelectorAll(".mic-btn")).forEach((btn) => {
+        if (!recSupported) {
+          btn.hidden = true;
+          return;
+        }
+        btn.addEventListener("click", () => toggleFieldDictation(btn.getAttribute("data-dictate"), btn));
+      });
+      const commandBtn = document.getElementById("voiceCommandBtn");
+      if (commandBtn && recSupported) {
+        commandBtn.hidden = false;
+        commandBtn.addEventListener("click", () => {
+          if (commandRecognizer) stopCommandMode();
+          else startCommandMode();
+        });
+      }
+      const stopBtn = document.getElementById("voiceStopBtn");
+      if (stopBtn) stopBtn.addEventListener("click", stopCommandMode);
+      const readBtn = document.getElementById("readAloudBtn");
+      if (readBtn && synthSupported) {
+        readBtn.hidden = false;
+        readBtn.addEventListener("click", () => {
+          if (window.speechSynthesis && window.speechSynthesis.speaking) cancelSpeech();
+          else readTechniqueAloud();
+        });
+      }
+    }
+    setupVoiceFeatures();
     (async function init() {
       loadTheme();
       loadLanguage();
