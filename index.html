@@ -296,6 +296,10 @@
 
         <div class="card">
           <h2 data-i18n="full_database">Base JSON complète</h2>
+          <div class="toolbar-row compact-gap">
+            <button class="secondary" id="restoreBackupBtn" type="button" data-i18n="btn_restore_backup">Restaurer la dernière sauvegarde</button>
+          </div>
+          <p class="hint" data-i18n="backup_hint">Des sauvegardes automatiques de la base sont conservées dans le navigateur (IndexedDB).</p>
           <pre id="databasePreview" class="json-preview"></pre>
         </div>
       </section>
@@ -309,6 +313,6 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.bundle.js"></script>
 </body>
 </html>

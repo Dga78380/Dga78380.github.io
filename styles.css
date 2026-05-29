@@ -744,6 +744,14 @@ body.no-hover-comments .mobile-part.comment-visible textarea { display: block; }
   }
 }
 
+/* Les vues mobiles (étapes verticales) sont réservées au smartphone en portrait. */
+@media (min-width: 701px) {
+  .mobile-steps-wrap,
+  .mobile-gantt-wrap {
+    display: none !important;
+  }
+}
+
 @media (max-width: 700px) {
   .header-inner {
     flex-direction: column;
